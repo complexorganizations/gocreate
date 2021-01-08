@@ -4,6 +4,7 @@ import ()
 
 func main() {
 	createProject()
+	gomod()
 	gitignore()
 	readmemd()
 }
