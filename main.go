@@ -10,7 +10,6 @@ func createDirectory() {
 	os.Mkdir("assets", 0755)
 	os.Mkdir("build", 0755)
 	os.Mkdir("cmd", 0755)
-	os.Mkdir("build", 0755)
 	os.Mkdir("config", 0755)
 	os.Mkdir("deployments", 0755)
 	os.Mkdir("docs", 0755)
@@ -46,6 +45,11 @@ func createFiles() {
 # vendor/`
 	ioutil.WriteFile("./gitignore", []byte(gitignore), 0755)
 	ioutil.WriteFile("./api/README.md", []byte("# `/api`"), 0755)
+	ioutil.WriteFile("./assets/README.md", []byte("# `/assets`"), 0755)
+	ioutil.WriteFile("./build/README.md", []byte("# `/build`"), 0755)
+	ioutil.WriteFile("./cmd/README.md", []byte("# `/cmd`"), 0755)
+	ioutil.WriteFile("./build/README.md", []byte("# `/build`"), 0755)
+
 }
 
 func main() {
