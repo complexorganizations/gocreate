@@ -6,6 +6,7 @@ import (
 )
 
 // https://github.com/golang-standards/project-layout
+// https://gobyexample.com/command-line-arguments
 
 func createDirectory() {
 	os.Mkdir("api", 0755)
