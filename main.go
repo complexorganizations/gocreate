@@ -10,7 +10,7 @@ import (
 
 func createProject() {
 	// take user argument
-	argument := os.Args[1:]
+	argument := os.Args[1]
 	// start creating project
 	os.Mkdir(argument, 0755)
 	os.Mkdir("api", 0755)
