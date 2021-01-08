@@ -44,7 +44,8 @@ func createFiles() {
 
 # Dependency directories (remove the comment below to include it)
 # vendor/`
-	ioutil.WriteFile(".gitignore", []byte(gitignore), 0755)
+	ioutil.WriteFile("./gitignore", []byte(gitignore), 0755)
+	ioutil.WriteFile("./api/README.md", []byte("# `/api`"), 0755)
 }
 
 func main() {
