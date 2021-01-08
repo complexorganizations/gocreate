@@ -4,6 +4,15 @@
 ### Features
 - Structuring Applications in Go
 
+#### How to use gocreate?
+```
+go get -v github.com/complexorganizations/gocreate  
+```
+
+```
+gocreate PROJECT_NAME
+```
+
 ---
 ### Author
 
