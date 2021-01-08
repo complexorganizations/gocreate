@@ -54,4 +54,5 @@ func createFiles() {
 
 func main() {
 	createDirectory()
+	createFiles()
 }
