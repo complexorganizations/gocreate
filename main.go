@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"io/ioutil"
 )
 
 func createDirectory() {
@@ -20,6 +21,30 @@ func createDirectory() {
 	os.Mkdir("pkg", 0755)
 	os.Mkdir("scripts", 0755)
 	os.Mkdir("test", 0755)
+	os.Mkdir("third_party", 0755)
+	os.Mkdir("tools", 0755)
+	os.Mkdir("vendor", 0755)
+	os.Mkdir("web", 0755)
+	os.Mkdir("website", 0755)
+}
+
+func createFiles() {
+	gitignore := `# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/`
+	ioutil.WriteFile(".gitignore", []byte(gitignore), 0755)
 }
 
 func main() {
