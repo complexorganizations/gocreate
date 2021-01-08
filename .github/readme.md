@@ -5,7 +5,7 @@
 
 ---
 ### Features
-- 
+- Structuring Applications in Go
 - 
 - 
 - 
