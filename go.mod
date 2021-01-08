@@ -1,3 +1,3 @@
-module github.com/complexorganizations/go-create
+module github.com/complexorganizations/gocreate
 
 go 1.15
