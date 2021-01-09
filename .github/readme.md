@@ -5,10 +5,11 @@
 - Structuring Applications in Go
 
 #### How to use gocreate?
+Download the latest gocreate binary
 ```
 go get -v github.com/complexorganizations/gocreate  
 ```
-
+Create a project using `gocreate`
 ```
 gocreate PROJECT_NAME
 ```
