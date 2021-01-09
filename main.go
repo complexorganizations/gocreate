@@ -99,7 +99,7 @@ func gitignore() {
 
 # Dependency directories (remove the comment below to include it)
 # vendor/`
-	ioutil.WriteFile("./gitignore", []byte(gitignore), 0755)
+	ioutil.WriteFile("./.gitignore", []byte(gitignore), 0755)
 }
 
 // Create README.md file
