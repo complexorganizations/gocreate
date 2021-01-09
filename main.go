@@ -5,6 +5,13 @@ import (
 	"os"
 )
 
+func main() {
+	createProject()
+	gomod()
+	gitignore()
+	readmemd()
+}
+
 func createProject() {
 	// take user argument
 	argument := os.Args[1]
@@ -233,11 +240,4 @@ Some Go projects do have a 'src' folder, but it usually happens when the devs ca
 Don't confuse the project level '/src' directory with the '/src' directory Go uses for its workspaces as described in ['How to Write Go Code'](https://golang.org/doc/code.html). The '$GOPATH' environment variable points to your (current) workspace (by default it points to '$HOME/go' on non-windows systems). This workspace includes the top level '/pkg', '/bin' and '/src' directories. Your actual project ends up being a sub-directory under '/src', so if you have the '/src' directory in your project the project path will look like this: '/some/path/to/workspace/src/your_project/src/your_code.go'. Note that with Go 1.11 it's possible to have your project outside of your 'GOPATH', but it still doesn't mean it's a good idea to use this layout pattern.`
 
 	ioutil.WriteFile("./README.md", []byte(readme), 0755)
-}
-
-func main() {
-	createProject()
-	gomod()
-	gitignore()
-	readmemd()
 }
