@@ -38,7 +38,7 @@ func createProject() {
 	os.Mkdir(newDir, 0755)
 	appDir := fmt.Sprint(newDir, "/README.md")
 	ioutil.WriteFile(appDir, []byte("# `/cmd/app`"), 0755)
-	os.Chdir(argument)
+	os.Chdir("../")
 	os.Mkdir("config", 0755)
 	ioutil.WriteFile("./config/README.md", []byte("# `/config`"), 0755)
 	os.Mkdir("deployments", 0755)
