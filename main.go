@@ -98,7 +98,7 @@ func gitignore() {
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/`
+vendor/`
 	ioutil.WriteFile("./.gitignore", []byte(gitignore), 0755)
 }
 
