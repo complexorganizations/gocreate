@@ -7,10 +7,34 @@ import (
 )
 
 func main() {
-	createProject()
+	gomain()
 	gomod()
+	createProject()
 	gitignore()
 	readmemd()
+}
+
+// Create main.go file
+func gomain() {
+	main := `package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+}`
+	ioutil.WriteFile("./main.go", []byte(main), 0755)
+}
+
+// Create the go.mod file
+func gomod() {
+	gomod := `module main
+
+go 1.15`
+	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
+	ioutil.WriteFile("./go.sum", []byte(""), 0755)
 }
 
 // Create the Go project structure.
@@ -71,15 +95,6 @@ func createProject() {
 	ioutil.WriteFile("./web/template/README.md", []byte("### `/web/template`"), 0755)
 	os.Mkdir("website", 0755)
 	ioutil.WriteFile("./website/README.md", []byte("### `/website`"), 0755)
-}
-
-// Create the go.mod file
-func gomod() {
-	gomod := `module main
-
-go 1.15`
-	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
-	ioutil.WriteFile("./go.sum", []byte(""), 0755)
 }
 
 // Create .gitignore file
