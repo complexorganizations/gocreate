@@ -13,14 +13,11 @@ func main() {
 	readmemd()
 }
 
+// Create the Go project structure.
 func createProject() {
-	// take user argument
 	argument := os.Args[1]
-	// start creating project
 	os.Mkdir(argument, 0755)
-	// go to the folder
 	os.Chdir(argument)
-	// create the rest of the folders, files
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("./api/README.md", []byte("# `/api`"), 0755)
 	os.Mkdir("assets", 0755)
@@ -76,12 +73,14 @@ func createProject() {
 	ioutil.WriteFile("./website/README.md", []byte("# `/website`"), 0755)
 }
 
+// Create the go.mod file
 func gomod() {
 	gomod := `module main
 	go 1.15`
 	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
 }
 
+// Create .gitignore file
 func gitignore() {
 	gitignore := `# Binaries for programs and plugins
 *.exe
@@ -101,6 +100,7 @@ func gitignore() {
 	ioutil.WriteFile("./gitignore", []byte(gitignore), 0755)
 }
 
+// Create README.md file
 func readmemd() {
 	readme := `# Standard Go Project Layout
 
