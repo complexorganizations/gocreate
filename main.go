@@ -76,8 +76,10 @@ func createProject() {
 // Create the go.mod file
 func gomod() {
 	gomod := `module main
-	go 1.15`
+
+go 1.15`
 	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
+	ioutil.WriteFile("./go.sum", []byte(""), 0755)
 }
 
 // Create .gitignore file
