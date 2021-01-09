@@ -3,7 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
-	//"fmt"
+	"fmt"
 )
 
 func main() {
@@ -35,7 +35,8 @@ func createProject() {
 	ioutil.WriteFile("./cmd/README.md", []byte("# `/cmd`"), 0755)
 	os.Chdir("cmd")
 	os.Mkdir(argument, 0755)
-	ioutil.WriteFile("./cmd/README.md", []byte("# `/cmd`"), 0755)
+	appDir := fmt.Sprint(argument, "/README.md")
+	ioutil.WriteFile(appDir, []byte("# `/cmd/app`"), 0755)
 	os.Chdir(argument)
 	os.Mkdir("config", 0755)
 	ioutil.WriteFile("./config/README.md", []byte("# `/config`"), 0755)
