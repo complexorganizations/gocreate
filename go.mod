@@ -1,3 +1,2 @@
-module github.com/complexorganizations/gocreate
-
-go 1.15
+module main
+	go 1.15
