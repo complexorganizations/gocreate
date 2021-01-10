@@ -23,6 +23,6 @@ gocreate PROJECT_NAME
 ---
 ### License
 
-Copyright © 2020 [Prajwal](https://github.com/prajwal-koirala)
+Copyright © 2021 [ComplexOrganizations](https://github.com/complexorganizations)
 
 This project is MIT licensed.
