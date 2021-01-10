@@ -97,7 +97,7 @@ func createProject() {
 	os.Mkdir("init", 0755)
 	ioutil.WriteFile("init/README.md", []byte("### `/init`"), 0755)
 	os.Mkdir("internal", 0755)
-	ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0755)
+	ioutil.WriteFile("internal/app/README.md", []byte("### `/internal`"), 0755)
 	os.Chdir("internal")
 	os.Mkdir("app", 0755)
 	ioutil.WriteFile("app/README.md", []byte("### `/internal/app`"), 0755)
