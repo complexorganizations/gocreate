@@ -32,7 +32,7 @@ import (
 func main() {
 	fmt.Println("Hello, World!")
 }`
-	ioutil.WriteFile("./main.go", []byte(main), 0755)
+	ioutil.WriteFile("main.go", []byte(main), 0755)
 }
 
 // Create the go.mod file
@@ -40,8 +40,8 @@ func gomod() {
 	gomod := `module main
 
 go 1.15`
-	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
-	ioutil.WriteFile("./go.sum", []byte(""), 0755)
+	ioutil.WriteFile("go.mod", []byte(gomod), 0755)
+	ioutil.WriteFile("go.sum", []byte(""), 0755)
 }
 
 // Create .gitignore file
@@ -61,65 +61,65 @@ func gitignore() {
 
 # Dependency directories (remove the comment below to include it)
 vendor/`
-	ioutil.WriteFile("./.gitignore", []byte(gitignore), 0755)
+	ioutil.WriteFile(".gitignore", []byte(gitignore), 0755)
 }
 
 // Create the Go project structure.
 func createProject() {
 	projectPath, err := os.Getwd()
 	os.Mkdir("api", 0755)
-	ioutil.WriteFile("./api/README.md", []byte("### `/api`"), 0755)
+	ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0755)
 	os.Mkdir("assets", 0755)
-	ioutil.WriteFile("./assets/README.md", []byte("### `/assets`"), 0755)
+	ioutil.WriteFile("assets/README.md", []byte("### `/assets`"), 0755)
 	os.Mkdir("build", 0755)
-	ioutil.WriteFile("./build/README.md", []byte("### `/build`"), 0755)
+	ioutil.WriteFile("build/README.md", []byte("### `/build`"), 0755)
 	os.Mkdir("build/ci", 0755)
-	ioutil.WriteFile("./build/ci/README.md", []byte("### `/build/ci`"), 0755)
+	ioutil.WriteFile("build/ci/README.md", []byte("### `/build/ci`"), 0755)
 	os.Mkdir("build/package", 0755)
-	ioutil.WriteFile("./build/package/README.md", []byte("### `/build/package`"), 0755)
+	ioutil.WriteFile("build/package/README.md", []byte("### `/build/package`"), 0755)
 	os.Mkdir("cmd", 0755)
-	ioutil.WriteFile("./cmd/README.md", []byte("### `/cmd`"), 0755)
+	ioutil.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0755)
 	os.Chdir("cmd")
 	os.Mkdir(argument, 0755)
-	appDir := fmt.Sprint(argument, "/README.md")
-	ioutil.WriteFile(appDir, []byte("### `/cmd/app`"), 0755)
+	readmeCMD := fmt.Sprint(argument, "/README.md")
+	ioutil.WriteFile(readmeCMD, []byte("### `/cmd/app`"), 0755)
 	os.Chdir(projectPath)
 	os.Mkdir("config", 0755)
-	ioutil.WriteFile("./config/README.md", []byte("### `/config`"), 0755)
+	ioutil.WriteFile("config/README.md", []byte("### `/config`"), 0755)
 	os.Mkdir("deployments", 0755)
-	ioutil.WriteFile("./deployments/README.md", []byte("### `/deployments`"), 0755)
+	ioutil.WriteFile("deployments/README.md", []byte("### `/deployments`"), 0755)
 	os.Mkdir("docs", 0755)
-	ioutil.WriteFile("./docs/README.md", []byte("### `/docs`"), 0755)
+	ioutil.WriteFile("docs/README.md", []byte("### `/docs`"), 0755)
 	os.Mkdir("examples", 0755)
-	ioutil.WriteFile("./examples/README.md", []byte("### `/examples`"), 0755)
+	ioutil.WriteFile("examples/README.md", []byte("### `/examples`"), 0755)
 	os.Mkdir("githooks", 0755)
-	ioutil.WriteFile("./githooks/README.md", []byte("### `/githooks`"), 0755)
+	ioutil.WriteFile("githooks/README.md", []byte("### `/githooks`"), 0755)
 	os.Mkdir("init", 0755)
-	ioutil.WriteFile("./init/README.md", []byte("### `/init`"), 0755)
+	ioutil.WriteFile("init/README.md", []byte("### `/init`"), 0755)
 	os.Mkdir("internal", 0755)
-	ioutil.WriteFile("./internal/README.md", []byte("### `/internal`"), 0755)
+	ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0755)
 	os.Mkdir("pkg", 0755)
-	ioutil.WriteFile("./pkg/README.md", []byte("### `/pkg`"), 0755)
+	ioutil.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0755)
 	os.Mkdir("scripts", 0755)
-	ioutil.WriteFile("./scripts/README.md", []byte("### `/scripts`"), 0755)
+	ioutil.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0755)
 	os.Mkdir("test", 0755)
-	ioutil.WriteFile("./test/README.md", []byte("### `/test`"), 0755)
+	ioutil.WriteFile("test/README.md", []byte("### `/test`"), 0755)
 	os.Mkdir("third_party", 0755)
-	ioutil.WriteFile("./third_party/README.md", []byte("### `/third_party`"), 0755)
+	ioutil.WriteFile("third_party/README.md", []byte("### `/third_party`"), 0755)
 	os.Mkdir("tools", 0755)
-	ioutil.WriteFile("./tools/README.md", []byte("### `/tools`"), 0755)
+	ioutil.WriteFile("tools/README.md", []byte("### `/tools`"), 0755)
 	os.Mkdir("vendor", 0755)
-	ioutil.WriteFile("./vendor/README.md", []byte("### `/vendor`"), 0755)
+	ioutil.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0755)
 	os.Mkdir("web", 0755)
-	ioutil.WriteFile("./web/README.md", []byte("### `/web`"), 0755)
+	ioutil.WriteFile("web/README.md", []byte("### `/web`"), 0755)
 	os.Mkdir("web/app", 0755)
-	ioutil.WriteFile("./web/app/README.md", []byte("### `/web/app`"), 0755)
+	ioutil.WriteFile("web/app/README.md", []byte("### `/web/app`"), 0755)
 	os.Mkdir("web/static", 0755)
-	ioutil.WriteFile("./web/static/README.md", []byte("### `/web/static`"), 0755)
+	ioutil.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0755)
 	os.Mkdir("web/template", 0755)
-	ioutil.WriteFile("./web/template/README.md", []byte("### `/web/template`"), 0755)
+	ioutil.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0755)
 	os.Mkdir("website", 0755)
-	ioutil.WriteFile("./website/README.md", []byte("### `/website`"), 0755)
+	ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0755)
 	if err != nil {
 		log.Println(err)
 	}
@@ -268,5 +268,5 @@ See the ['/website'](website/README.md) directory for examples.
 Some Go projects do have a 'src' folder, but it usually happens when the devs came from the Java world where it's a common pattern. If you can help yourself try not to adopt this Java pattern. You really don't want your Go code or Go projects to look like Java :-)
 
 Don't confuse the project level '/src' directory with the '/src' directory Go uses for its workspaces as described in ['How to Write Go Code'](https://golang.org/doc/code.html). The '$GOPATH' environment variable points to your (current) workspace (by default it points to '$HOME/go' on non-windows systems). This workspace includes the top level '/pkg', '/bin' and '/src' directories. Your actual project ends up being a sub-directory under '/src', so if you have the '/src' directory in your project the project path will look like this: '/some/path/to/workspace/src/your_project/src/your_code.go'. Note that with Go 1.11 it's possible to have your project outside of your 'GOPATH', but it still doesn't mean it's a good idea to use this layout pattern.`
-	ioutil.WriteFile("./README.md", []byte(readme), 0755)
+	ioutil.WriteFile("README.md", []byte(readme), 0755)
 }
