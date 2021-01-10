@@ -21,6 +21,11 @@ gocreate PROJECT_NAME
 * Website: [prajwalkoirala.com](https://www.prajwalkoirala.com)
 
 ---
+### Credits
+
+[golang-standards](https://github.com/golang-standards/project-layout)
+
+---
 ### License
 
 Copyright © 2021 [ComplexOrganizations](https://github.com/complexorganizations)
