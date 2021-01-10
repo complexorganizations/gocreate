@@ -1,9 +1,10 @@
 package main
 
 import (
-	"io/ioutil"
-	"os"
 	"fmt"
+	"io/ioutil"
+	"log"
+	"os"
 )
 
 var (
@@ -65,6 +66,7 @@ vendor/`
 
 // Create the Go project structure.
 func createProject() {
+	projectPath, err := os.Getwd()
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("./api/README.md", []byte("### `/api`"), 0755)
 	os.Mkdir("assets", 0755)
@@ -81,7 +83,7 @@ func createProject() {
 	os.Mkdir(argument, 0755)
 	appDir := fmt.Sprint(argument, "/README.md")
 	ioutil.WriteFile(appDir, []byte("### `/cmd/app`"), 0755)
-	os.Chdir("../")
+	os.Chdir(projectPath)
 	os.Mkdir("config", 0755)
 	ioutil.WriteFile("./config/README.md", []byte("### `/config`"), 0755)
 	os.Mkdir("deployments", 0755)
@@ -118,6 +120,9 @@ func createProject() {
 	ioutil.WriteFile("./web/template/README.md", []byte("### `/web/template`"), 0755)
 	os.Mkdir("website", 0755)
 	ioutil.WriteFile("./website/README.md", []byte("### `/website`"), 0755)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 // Create README.md file
