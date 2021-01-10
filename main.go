@@ -6,17 +6,20 @@ import (
 	"fmt"
 )
 
+var (
+	argument = os.Args[1]
+)
+
 func main() {
-	createProject()
 	gomain()
 	gomod()
+	createProject()
 	gitignore()
 	readmemd()
 }
 
 // Create the Go project structure.
 func createProject() {
-	argument := os.Args[1]
 	os.Mkdir(argument, 0755)
 	os.Chdir(argument)
 	os.Mkdir("api", 0755)
