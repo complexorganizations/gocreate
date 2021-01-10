@@ -13,15 +13,58 @@ var (
 func main() {
 	gomain()
 	gomod()
-	createProject()
 	gitignore()
+	createProject()
 	readmemd()
+}
+
+// Create main.go file
+func gomain() {
+	os.Mkdir(argument, 0755)
+	os.Chdir(argument)
+	main := `package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+}`
+	ioutil.WriteFile("./main.go", []byte(main), 0755)
+}
+
+// Create the go.mod file
+func gomod() {
+	gomod := `module main
+
+go 1.15`
+	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
+	ioutil.WriteFile("./go.sum", []byte(""), 0755)
+}
+
+// Create .gitignore file
+func gitignore() {
+	gitignore := `# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with 'go test -c'
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+vendor/`
+	ioutil.WriteFile("./.gitignore", []byte(gitignore), 0755)
 }
 
 // Create the Go project structure.
 func createProject() {
-	os.Mkdir(argument, 0755)
-	os.Chdir(argument)
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("./api/README.md", []byte("### `/api`"), 0755)
 	os.Mkdir("assets", 0755)
@@ -75,49 +118,6 @@ func createProject() {
 	ioutil.WriteFile("./web/template/README.md", []byte("### `/web/template`"), 0755)
 	os.Mkdir("website", 0755)
 	ioutil.WriteFile("./website/README.md", []byte("### `/website`"), 0755)
-}
-
-// Create main.go file
-func gomain() {
-	main := `package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	fmt.Println("Hello, World!")
-}`
-	ioutil.WriteFile("./main.go", []byte(main), 0755)
-}
-
-// Create the go.mod file
-func gomod() {
-	gomod := `module main
-
-go 1.15`
-	ioutil.WriteFile("./go.mod", []byte(gomod), 0755)
-	ioutil.WriteFile("./go.sum", []byte(""), 0755)
-}
-
-// Create .gitignore file
-func gitignore() {
-	gitignore := `# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, built with 'go test -c'
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-
-# Dependency directories (remove the comment below to include it)
-vendor/`
-	ioutil.WriteFile("./.gitignore", []byte(gitignore), 0755)
 }
 
 // Create README.md file
