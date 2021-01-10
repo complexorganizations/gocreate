@@ -2,12 +2,12 @@
 
 ---
 ### Features
-- Structuring Applications in Go
+- Structuring Go Applications
 
 #### How to use gocreate?
 Download the latest gocreate binary
 ```
-go get -v github.com/complexorganizations/gocreate  
+go get -v github.com/complexorganizations/gocreate
 ```
 Create a project using `gocreate`
 ```
