@@ -269,7 +269,7 @@ func main() {
 	gomod := `module main
 
 go 1.15`
-	// Create go.sum file
+	// Create go.mod file
 	if _, err := os.Stat("go.mod"); os.IsNotExist(err) {
 		ioutil.WriteFile("go.mod", []byte(gomod), 0644)
 	} else {
