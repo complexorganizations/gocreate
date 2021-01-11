@@ -37,7 +37,7 @@ func createProjectStructure() {
 	// Create cmd folder
 	os.Mkdir("cmd", 0755)
 	ioutil.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0755)
-	// Create cmd folder
+	// Create cmd/ProjectName folder
 	projectSubFolder := fmt.Sprint("cmd/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
@@ -66,17 +66,19 @@ func createProjectStructure() {
 	ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0755)
 	// Create internal/app folder
 	os.Mkdir("internal/app", 0755)
-	projectSubFolder = fmt.Sprint("internal/app", projectName)
+	// Create internal/app/ProjectName folder
+	projectSubFolder = fmt.Sprint("internal/app/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("interal/", "app/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("interal/", "app")
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "app", projectName)
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create internal/pkg folder
 	os.Mkdir("internal/pkg", 0755)
-	projectSubFolder = fmt.Sprint("internal/pkg", projectName)
+	// Create internal/pkg/ProjectName folder
+	projectSubFolder = fmt.Sprint("internal/pkg/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("interal/", "pkg/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg")
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg/", projectName)
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create pkg folder
 	os.Mkdir("pkg", 0755)
@@ -84,7 +86,7 @@ func createProjectStructure() {
 	// Create pkg/project folder
 	projectSubFolder = fmt.Sprint("pkg/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
-	projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName)
+	projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName, "/README.md")
 	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg")
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create scripts folder
