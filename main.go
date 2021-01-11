@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	//"log"
+	"log"
 	"os"
 )
 
 var (
-	projectName      = os.Args[1]
-	projectPath, err = os.Getwd()
+	projectName = os.Args[1]
 )
 
 func main() {
@@ -20,6 +19,7 @@ func main() {
 func createProjectStructure() {
 	os.Mkdir(projectName, 0755)
 	os.Chdir(projectName)
+	projectPath, err = os.Getwd()
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0755)
 	os.Mkdir("assets", 0755)
@@ -73,6 +73,9 @@ func createProjectStructure() {
 	ioutil.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0755)
 	os.Mkdir("website", 0755)
 	ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0755)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func createProjectFiles() {
