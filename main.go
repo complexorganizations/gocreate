@@ -449,3 +449,13 @@ Don't confuse the project level '/src' directory with the '/src' directory Go us
 		log.Println(err)
 	}
 }
+
+func fileExists(filename string) bool {
+    info, err := os.Stat(filename)
+    if os.IsNotExist(err) {
+        return false
+    } else if os.IsExist(err) {
+        return true
+    }
+    return
+}
