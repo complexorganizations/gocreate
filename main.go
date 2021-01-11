@@ -87,7 +87,7 @@ func createProjectStructure() {
 	projectSubFolder = fmt.Sprint("pkg/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("internal/pkg/", projectName)
+	projectSubFolderReadmeContent = fmt.Sprint("pkg/", projectName)
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	// Create scripts folder
 	os.Mkdir("scripts", 0755)
