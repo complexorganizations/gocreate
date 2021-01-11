@@ -451,11 +451,11 @@ Don't confuse the project level '/src' directory with the '/src' directory Go us
 }
 
 func fileExists(filename string) bool {
-    info, err := os.Stat(filename)
-    if os.IsExist(err) {
-        return true
-    } else if os.IsNotExist(err) {
-        return false
-    }
-    return info.IsDir()
+        info, err := os.Stat(filename)
+        if os.IsNotExist(err) {
+                return false
+        } else {
+                return true
+        }
+        return info.IsDir()
 }
