@@ -153,7 +153,7 @@ func createProjectStructure() {
 	projectSubFolder = fmt.Sprint("internal/pkg/", projectName)
 	if _, err := os.Stat(projectSubFolder); os.IsNotExist(err) {
 		os.Mkdir(projectSubFolder, 0755)
-		projectSubFolderreadmeFile = fmt.Sprint("internal/pkg/", projectName, "/README.md")
+		projectSubFolderreadmeFile := fmt.Sprint("internal/pkg/", projectName, "/README.md")
 		projectSubFolderReadmeContent := fmt.Sprint("internal/pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
@@ -171,7 +171,7 @@ func createProjectStructure() {
 	if _, err := os.Stat(projectSubFolder); os.IsNotExist(err) {
 		projectSubFolder = fmt.Sprint("pkg/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
-		projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName, "/README.md")
+		projectSubFolderreadmeFile := fmt.Sprint("pkg/", projectName, "/README.md")
 		projectSubFolderReadmeContent := fmt.Sprint("pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
