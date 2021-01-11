@@ -227,7 +227,7 @@ func createProjectStructure() {
 		log.Fatal(err)
 	}
 	// Create web/static folder
-	if _, err := os.Stat("web/app"); os.IsNotExist(err) {
+	if _, err := os.Stat("web/static"); os.IsNotExist(err) {
 		os.Mkdir("web/static", 0755)
 		ioutil.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0644)
 	} else {
