@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 )
 
@@ -17,65 +16,107 @@ func main() {
 }
 
 func createProjectStructure() {
+	// Create project folder
 	os.Mkdir(projectName, 0755)
 	os.Chdir(projectName)
-	projectPath, err := os.Getwd()
+	// Create api folder
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0755)
+	// Create assets folder
 	os.Mkdir("assets", 0755)
 	ioutil.WriteFile("assets/README.md", []byte("### `/assets`"), 0755)
+	// Create build folder
 	os.Mkdir("build", 0755)
 	ioutil.WriteFile("build/README.md", []byte("### `/build`"), 0755)
+	// Create build/ci folder
 	os.Mkdir("build/ci", 0755)
 	ioutil.WriteFile("build/ci/README.md", []byte("### `/build/ci`"), 0755)
+	// Create build/package folder
 	os.Mkdir("build/package", 0755)
 	ioutil.WriteFile("build/package/README.md", []byte("### `/build/package`"), 0755)
+	// Create cmd folder
 	os.Mkdir("cmd", 0755)
 	ioutil.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0755)
-	os.Chdir("cmd")
-	os.Mkdir(projectName, 0755)
-	readmeCMD := fmt.Sprint(projectName, "/README.md")
-	ioutil.WriteFile(readmeCMD, []byte("### `/cmd/app`"), 0755)
-	os.Chdir(projectPath)
-	os.Mkdir("config", 0755)
-	ioutil.WriteFile("config/README.md", []byte("### `/config`"), 0755)
+	// Create cmd folder
+	projectSubFolder := fmt.Sprint("cmd/", projectName)
+	os.Mkdir(projectSubFolder, 0755)
+	projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
+	projectSubFolderReadmeContent := fmt.Sprint("cmd/", projectName)
+	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
+	// Create configs folder
+	os.Mkdir("configs", 0755)
+	ioutil.WriteFile("configs/README.md", []byte("### `/config`"), 0755)
+	// Create deployments folder
 	os.Mkdir("deployments", 0755)
 	ioutil.WriteFile("deployments/README.md", []byte("### `/deployments`"), 0755)
+	// Create docs folder
 	os.Mkdir("docs", 0755)
 	ioutil.WriteFile("docs/README.md", []byte("### `/docs`"), 0755)
+	// Create examples folder
 	os.Mkdir("examples", 0755)
 	ioutil.WriteFile("examples/README.md", []byte("### `/examples`"), 0755)
+	// Create githooks folder
 	os.Mkdir("githooks", 0755)
 	ioutil.WriteFile("githooks/README.md", []byte("### `/githooks`"), 0755)
+	// Create init folder
 	os.Mkdir("init", 0755)
 	ioutil.WriteFile("init/README.md", []byte("### `/init`"), 0755)
+	// Create internal folder
 	os.Mkdir("internal", 0755)
 	ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0755)
+	// Create internal/app folder
+	os.Mkdir("internal/app", 0755)
+	projectSubFolder = fmt.Sprint("internal/app", projectName)
+	os.Mkdir(projectSubFolder, 0755)
+	projectSubFolderreadmeFile = fmt.Sprint("interal/", "app/", projectName, "/README.md")
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "app/", projectName)
+	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
+	// Create internal/pkg folder
+	os.Mkdir("internal/pkg", 0755)
+	projectSubFolder = fmt.Sprint("internal/pkg", projectName)
+	os.Mkdir(projectSubFolder, 0755)
+	projectSubFolderreadmeFile = fmt.Sprint("interal/", "pkg/", projectName, "/README.md")
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg/", projectName)
+	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
+	// Create pkg folder
 	os.Mkdir("pkg", 0755)
 	ioutil.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0755)
+	// Create pkg/project folder
+	projectSubFolder = fmt.Sprint("pkg", projectName)
+	os.Mkdir(projectSubFolder, 0755)
+	projectSubFolderreadmeFile = fmt.Sprint("pkg", projectName)
+	projectSubFolderReadmeContent = fmt.Sprint("interal", "/pkg/", projectName)
+	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
+	// Create scripts folder
 	os.Mkdir("scripts", 0755)
 	ioutil.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0755)
+	// Create test folder
 	os.Mkdir("test", 0755)
 	ioutil.WriteFile("test/README.md", []byte("### `/test`"), 0755)
+	// Create third_party folder
 	os.Mkdir("third_party", 0755)
 	ioutil.WriteFile("third_party/README.md", []byte("### `/third_party`"), 0755)
+	// Create tools folder
 	os.Mkdir("tools", 0755)
 	ioutil.WriteFile("tools/README.md", []byte("### `/tools`"), 0755)
+	// Create vendor folder
 	os.Mkdir("vendor", 0755)
 	ioutil.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0755)
+	// Create web folder
 	os.Mkdir("web", 0755)
 	ioutil.WriteFile("web/README.md", []byte("### `/web`"), 0755)
+	// Create web/app folder
 	os.Mkdir("web/app", 0755)
 	ioutil.WriteFile("web/app/README.md", []byte("### `/web/app`"), 0755)
+	// Create web/static folder
 	os.Mkdir("web/static", 0755)
 	ioutil.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0755)
+	// Create web/template folder
 	os.Mkdir("web/template", 0755)
 	ioutil.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0755)
+	// Create website folder
 	os.Mkdir("website", 0755)
 	ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0755)
-	if err != nil {
-		log.Println(err)
-	}
 }
 
 func createProjectFiles() {
