@@ -155,7 +155,7 @@ go 1.15`
 *.out
 
 # Dependency directories (remove the comment below to include it)
-vendor/`
+# vendor/`
 	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	// Create README.md file
 	readme := `# Standard Go Project Layout
