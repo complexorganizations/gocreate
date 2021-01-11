@@ -69,14 +69,14 @@ func createProjectStructure() {
 	projectSubFolder = fmt.Sprint("internal/app", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("interal/", "app/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("interal/", "app/", projectName)
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "app")
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create internal/pkg folder
 	os.Mkdir("internal/pkg", 0755)
 	projectSubFolder = fmt.Sprint("internal/pkg", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("interal/", "pkg/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg/", projectName)
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg")
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create pkg folder
 	os.Mkdir("pkg", 0755)
@@ -85,7 +85,7 @@ func createProjectStructure() {
 	projectSubFolder = fmt.Sprint("pkg", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("pkg", projectName)
-	projectSubFolderReadmeContent = fmt.Sprint("interal", "/pkg/", projectName)
+	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg")
 	ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0755)
 	// Create scripts folder
 	os.Mkdir("scripts", 0755)
