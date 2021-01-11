@@ -120,6 +120,7 @@ func createProjectStructure() {
 }
 
 func createProjectFiles() {
+	// Create main.go file
 	mainFile := `package main
 
 import (
@@ -130,11 +131,14 @@ func main() {
 	fmt.Println("Hello, World!")
 }`
 	ioutil.WriteFile("main.go", []byte(mainFile), 0755)
+	// Create go.mod file
 	gomod := `module main
 
 go 1.15`
 	ioutil.WriteFile("go.mod", []byte(gomod), 0755)
+	// Create go.sum file
 	ioutil.WriteFile("go.sum", []byte(""), 0755)
+	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
 *.exe
 *.exe~
@@ -151,6 +155,7 @@ go 1.15`
 # Dependency directories (remove the comment below to include it)
 # vendor/`
 	ioutil.WriteFile(".gitignore", []byte(gitignore), 0755)
+	// Create README.md file
 	readme := `# Standard Go Project Layout
 
 ## Overview
