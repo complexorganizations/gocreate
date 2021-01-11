@@ -75,7 +75,7 @@ func createProjectStructure() {
 	// Create internal/pkg folder
 	os.Mkdir("internal/pkg", 0755)
 	// Create internal/pkg/ProjectName folder
-	projectSubFolder = fmt.Sprint("internal/pkg/", projectName)
+	projectSubFolder = fmt.Sprint("internal/", "pkg/", projectName)
 	os.Mkdir(projectSubFolder, 0755)
 	projectSubFolderreadmeFile = fmt.Sprint("interal/", "pkg/", projectName, "/README.md")
 	projectSubFolderReadmeContent = fmt.Sprint("interal/", "pkg/", projectName)
