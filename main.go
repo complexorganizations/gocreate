@@ -19,7 +19,7 @@ func main() {
 func createProjectStructure() {
 	os.Mkdir(projectName, 0755)
 	os.Chdir(projectName)
-	projectPath, err = os.Getwd()
+	projectPath, err := os.Getwd()
 	os.Mkdir("api", 0755)
 	ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0755)
 	os.Mkdir("assets", 0755)
@@ -79,7 +79,6 @@ func createProjectStructure() {
 }
 
 func createProjectFiles() {
-	os.Chdir(projectPath)
 	mainFile := `package main
 
 import (
