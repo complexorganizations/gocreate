@@ -67,8 +67,8 @@ func createProjectStructure() {
 		log.Println(err)
 	}
 	// Create cmd/ProjectName folder
-	projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
-	if _, err := os.Stat(projectSubFolderreadmeFile); os.IsNotExist(err) {
+	projectSubFolder := fmt.Sprint("cmd/", projectName)
+	if _, err := os.Stat(projectSubFolder); os.IsNotExist(err) {
 		projectSubFolder := fmt.Sprint("cmd/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
 		projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
@@ -133,7 +133,7 @@ func createProjectStructure() {
 		log.Println(err)
 	}
 	// Create internal/app/ProjectName folder
-	projectSubFolder := fmt.Sprint("internal/app/", projectName)
+	projectSubFolder = fmt.Sprint("internal/app/", projectName)
 	if _, err := os.Stat(projectSubFolder); os.IsNotExist(err) {
 		projectSubFolder := fmt.Sprint("internal/app/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
