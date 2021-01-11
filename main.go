@@ -140,8 +140,6 @@ go 1.15`
 	ioutil.WriteFile("go.mod", []byte(gomod), 0644)
 	// Create go.sum file
 	ioutil.WriteFile("go.sum", []byte(""), 0644)
-	// Create Makefile file
-	ioutil.WriteFile("Makefile", []byte(""), 0644)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
 *.exe
