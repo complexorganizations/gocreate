@@ -22,49 +22,49 @@ func createProjectStructure() {
 		os.Mkdir(projectName, 0755)
 		os.Chdir(projectName)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create api folder
 	if isNotExist("api") {
 		os.Mkdir("api", 0755)
 		ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create assets folder
 	if isNotExist("assets") {
 		os.Mkdir("assets", 0755)
 		ioutil.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create build folder
 	if isNotExist("build") {
 		os.Mkdir("build", 0755)
 		ioutil.WriteFile("build/README.md", []byte("### `/build`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create build/ci folder
 	if isNotExist("build/ci") {
 		os.Mkdir("build/ci", 0755)
 		ioutil.WriteFile("build/ci/README.md", []byte("### `/build/ci`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create build/package folder
 	if isNotExist("build/package") {
 		os.Mkdir("build/package", 0755)
 		ioutil.WriteFile("build/package/README.md", []byte("### `/build/package`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create cmd folder
 	if isNotExist("cmd") {
 		os.Mkdir("cmd", 0755)
 		ioutil.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create cmd/ProjectName folder
 	projectSubFolder := fmt.Sprint("cmd/", projectName)
@@ -75,62 +75,62 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("cmd/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create configs folder
 	if isNotExist("configs") {
 		os.Mkdir("configs", 0755)
 		ioutil.WriteFile("configs/README.md", []byte("### `/config`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create deployments folder
 	if isNotExist("deployments") {
 		os.Mkdir("deployments", 0755)
 		ioutil.WriteFile("deployments/README.md", []byte("### `/deployments`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create docs folder
 	if isNotExist("docs") {
 		os.Mkdir("docs", 0755)
 		ioutil.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create examples folder
 	if isNotExist("examples") {
 		os.Mkdir("examples", 0755)
 		ioutil.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create githooks folder
 	if isNotExist("githooks") {
 		os.Mkdir("githooks", 0755)
 		ioutil.WriteFile("githooks/README.md", []byte("### `/githooks`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create init folder
 	if isNotExist("init") {
 		os.Mkdir("init", 0755)
 		ioutil.WriteFile("init/README.md", []byte("### `/init`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create internal folder
 	if isNotExist("internal") {
 		os.Mkdir("internal", 0755)
 		ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create internal/app folder
 	if isNotExist("internal/app") {
 		os.Mkdir("internal/app", 0755)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create internal/app/ProjectName folder
 	projectSubFolder = fmt.Sprint("internal/app/", projectName)
@@ -141,13 +141,13 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("internal/app/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create internal/pkg folder
 	if isNotExist("internal/pkg") {
 		os.Mkdir("internal/pkg", 0755)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create internal/pkg/ProjectName folder
 	projectSubFolder = fmt.Sprint("internal/pkg/", projectName)
@@ -157,14 +157,14 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("internal/pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create pkg folder
 	if isNotExist("pkg") {
 		os.Mkdir("pkg", 0755)
 		ioutil.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create pkg/project folder
 	projectSubFolder = fmt.Sprint("pkg/", projectName)
@@ -175,77 +175,77 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create scripts folder
 	if isNotExist("scripts") {
 		os.Mkdir("scripts", 0755)
 		ioutil.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create test folder
 	if isNotExist("test") {
 		os.Mkdir("test", 0755)
 		ioutil.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create third_party folder
 	if isNotExist("third_party") {
 		os.Mkdir("third_party", 0755)
 		ioutil.WriteFile("third_party/README.md", []byte("### `/third_party`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create tools folder
 	if isNotExist("tools") {
 		os.Mkdir("tools", 0755)
 		ioutil.WriteFile("tools/README.md", []byte("### `/tools`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create vendor folder
 	if isNotExist("vendor") {
 		os.Mkdir("vendor", 0755)
 		ioutil.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create web folder
 	if isNotExist("web") {
 		os.Mkdir("web", 0755)
 		ioutil.WriteFile("web/README.md", []byte("### `/web`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create web/app folder
 	if isNotExist("web/app") {
 		os.Mkdir("web/app", 0755)
 		ioutil.WriteFile("web/app/README.md", []byte("### `/web/app`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create web/static folder
 	if isNotExist("web/static") {
 		os.Mkdir("web/static", 0755)
 		ioutil.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create web/template folder
 	if isNotExist("web/template") {
 		os.Mkdir("web/template", 0755)
 		ioutil.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create website folder
 	if isNotExist("website") {
 		os.Mkdir("website", 0755)
 		ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 }
 
@@ -263,7 +263,7 @@ func main() {
 	if isNotExist("main.go") {
 		ioutil.WriteFile("main.go", []byte(mainFile), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create go.mod file
 	gomod := `module main
@@ -272,13 +272,13 @@ go 1.15`
 	if isNotExist("go.mod") {
 		ioutil.WriteFile("go.mod", []byte(gomod), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create go.sum file
 	if isNotExist("go.sum") {
 		ioutil.WriteFile("go.sum", []byte(""), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
@@ -299,7 +299,7 @@ go 1.15`
 	if isNotExist(".gitignore") {
 		ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 	// Create README.md file
 	readme := `# Standard Go Project Layout
@@ -446,7 +446,7 @@ Don't confuse the project level '/src' directory with the '/src' directory Go us
 	if isNotExist("README.md") {
 		ioutil.WriteFile("README.md", []byte(readme), 0644)
 	} else {
-		log.Println("Error:")
+		log.Println("Error: Directory Already Exists")
 	}
 }
 
