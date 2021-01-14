@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 )
 
@@ -21,6 +22,7 @@ func createProjectStructure() {
 		os.Mkdir(projectName, 0755)
 		os.Chdir(projectName)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create api folder
@@ -28,6 +30,7 @@ func createProjectStructure() {
 		os.Mkdir("api", 0755)
 		ioutil.WriteFile("api/README.md", []byte("### `/api`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create assets folder
@@ -35,6 +38,7 @@ func createProjectStructure() {
 		os.Mkdir("assets", 0755)
 		ioutil.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create build folder
@@ -42,6 +46,7 @@ func createProjectStructure() {
 		os.Mkdir("build", 0755)
 		ioutil.WriteFile("build/README.md", []byte("### `/build`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create build/ci folder
@@ -49,6 +54,7 @@ func createProjectStructure() {
 		os.Mkdir("build/ci", 0755)
 		ioutil.WriteFile("build/ci/README.md", []byte("### `/build/ci`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create build/package folder
@@ -56,6 +62,7 @@ func createProjectStructure() {
 		os.Mkdir("build/package", 0755)
 		ioutil.WriteFile("build/package/README.md", []byte("### `/build/package`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create cmd folder
@@ -63,6 +70,7 @@ func createProjectStructure() {
 		os.Mkdir("cmd", 0755)
 		ioutil.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create cmd/ProjectName folder
@@ -74,6 +82,7 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("cmd/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create configs folder
@@ -81,6 +90,7 @@ func createProjectStructure() {
 		os.Mkdir("configs", 0755)
 		ioutil.WriteFile("configs/README.md", []byte("### `/config`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create deployments folder
@@ -88,6 +98,7 @@ func createProjectStructure() {
 		os.Mkdir("deployments", 0755)
 		ioutil.WriteFile("deployments/README.md", []byte("### `/deployments`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create docs folder
@@ -95,6 +106,7 @@ func createProjectStructure() {
 		os.Mkdir("docs", 0755)
 		ioutil.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create examples folder
@@ -102,6 +114,7 @@ func createProjectStructure() {
 		os.Mkdir("examples", 0755)
 		ioutil.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create githooks folder
@@ -109,6 +122,7 @@ func createProjectStructure() {
 		os.Mkdir("githooks", 0755)
 		ioutil.WriteFile("githooks/README.md", []byte("### `/githooks`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create init folder
@@ -116,6 +130,7 @@ func createProjectStructure() {
 		os.Mkdir("init", 0755)
 		ioutil.WriteFile("init/README.md", []byte("### `/init`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create internal folder
@@ -123,12 +138,14 @@ func createProjectStructure() {
 		os.Mkdir("internal", 0755)
 		ioutil.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create internal/app folder
 	if isNotExist("internal/app") {
 		os.Mkdir("internal/app", 0755)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create internal/app/ProjectName folder
@@ -140,12 +157,14 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("internal/app/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create internal/pkg folder
 	if isNotExist("internal/pkg") {
 		os.Mkdir("internal/pkg", 0755)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create internal/pkg/ProjectName folder
@@ -156,6 +175,7 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("internal/pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create pkg folder
@@ -163,6 +183,7 @@ func createProjectStructure() {
 		os.Mkdir("pkg", 0755)
 		ioutil.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create pkg/project folder
@@ -174,6 +195,7 @@ func createProjectStructure() {
 		projectSubFolderReadmeContent := fmt.Sprint("pkg/", projectName)
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create scripts folder
@@ -181,6 +203,7 @@ func createProjectStructure() {
 		os.Mkdir("scripts", 0755)
 		ioutil.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create test folder
@@ -188,6 +211,7 @@ func createProjectStructure() {
 		os.Mkdir("test", 0755)
 		ioutil.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create third_party folder
@@ -195,6 +219,7 @@ func createProjectStructure() {
 		os.Mkdir("third_party", 0755)
 		ioutil.WriteFile("third_party/README.md", []byte("### `/third_party`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create tools folder
@@ -202,6 +227,7 @@ func createProjectStructure() {
 		os.Mkdir("tools", 0755)
 		ioutil.WriteFile("tools/README.md", []byte("### `/tools`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create vendor folder
@@ -209,6 +235,7 @@ func createProjectStructure() {
 		os.Mkdir("vendor", 0755)
 		ioutil.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create web folder
@@ -216,6 +243,7 @@ func createProjectStructure() {
 		os.Mkdir("web", 0755)
 		ioutil.WriteFile("web/README.md", []byte("### `/web`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create web/app folder
@@ -223,6 +251,7 @@ func createProjectStructure() {
 		os.Mkdir("web/app", 0755)
 		ioutil.WriteFile("web/app/README.md", []byte("### `/web/app`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create web/static folder
@@ -230,6 +259,7 @@ func createProjectStructure() {
 		os.Mkdir("web/static", 0755)
 		ioutil.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create web/template folder
@@ -237,6 +267,7 @@ func createProjectStructure() {
 		os.Mkdir("web/template", 0755)
 		ioutil.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create website folder
@@ -244,6 +275,7 @@ func createProjectStructure() {
 		os.Mkdir("website", 0755)
 		ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 }
@@ -262,6 +294,7 @@ func main() {
 	if isNotExist("main.go") {
 		ioutil.WriteFile("main.go", []byte(mainFile), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create go.mod file
@@ -271,12 +304,14 @@ go 1.15`
 	if isNotExist("go.mod") {
 		ioutil.WriteFile("go.mod", []byte(gomod), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create go.sum file
 	if isNotExist("go.sum") {
 		ioutil.WriteFile("go.sum", []byte(""), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create .gitignore file
@@ -298,6 +333,7 @@ go 1.15`
 	if isNotExist(".gitignore") {
 		ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 	// Create README.md file
@@ -445,6 +481,7 @@ Don't confuse the project level '/src' directory with the '/src' directory Go us
 	if isNotExist("README.md") {
 		ioutil.WriteFile("README.md", []byte(readme), 0644)
 	} else {
+		log.Println("Error: Couldn't create project.")
 		os.Exit(0)
 	}
 }
