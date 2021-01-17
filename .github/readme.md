@@ -1,5 +1,7 @@
 ### gocreate
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/complexorganizations/gocreate)](https://goreportcard.com/report/github.com/complexorganizations/gocreate)
+
 ---
 ### Features
 - Structuring Go Applications
