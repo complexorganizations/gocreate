@@ -19,6 +19,9 @@
   <a href="https://goreportcard.com/report/github.com/complexorganizations/gocreate">
     <img alt="GoReport" src="https://goreportcard.com/badge/github.com/complexorganizations/gocreate" target="_blank" />
   </a>
+  <a href="https://github.com/complexorganizations/gocreate/actions">
+    <img alt="GoReport" src="https://github.com/complexorganizations/gocreate/workflows/Go/badge.svg" target="_blank" />
+  </a>
 </p>
 
 ---
