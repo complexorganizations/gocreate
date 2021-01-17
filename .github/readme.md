@@ -13,7 +13,7 @@
   <a href="https://github.com/complexorganizations/gocreate/pulls">
     <img alt="PullRequest" src="https://img.shields.io/github/issues-pr/complexorganizations/gocreate" target="_blank" />
   </a>
-  <a href="https://raw.githubusercontent.com/complexorganizations/gocreate/main/.github/LICENSE">
+  <a href="https://raw.githubusercontent.com/complexorganizations/gocreate/main/.github/license">
     <img alt="License" src="https://img.shields.io/github/license/complexorganizations/gocreate" target="_blank" />
   </a>
   <a href="https://goreportcard.com/report/github.com/complexorganizations/gocreate">
