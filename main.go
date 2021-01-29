@@ -43,7 +43,7 @@ func createProjectStructure() {
 		projectSubFolder := fmt.Sprint("cmd/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
 		projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
-		projectSubFolderReadmeContent := fmt.Sprint("cmd/", projectName)
+		projectSubFolderReadmeContent := fmt.Sprint("### `/cmd/", projectName, "`")
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 		// Create configs folder
 		os.Mkdir("configs", 0755)
@@ -72,14 +72,14 @@ func createProjectStructure() {
 		projectSubFolder = fmt.Sprint("internal/app/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
 		projectSubFolderreadmeFile = fmt.Sprint("internal/app/", projectName, "/README.md")
-		projectSubFolderReadmeContent = fmt.Sprint("internal/app/", projectName)
+		projectSubFolderReadmeContent = fmt.Sprint("### `/internal/app/", projectName, "`")
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 		// Create internal/pkg folder
 		os.Mkdir("internal/pkg", 0755)
 		// Create internal/pkg/ProjectName folder
 		os.Mkdir(projectSubFolder, 0755)
 		projectSubFolderreadmeFile = fmt.Sprint("internal/pkg/", projectName, "/README.md")
-		projectSubFolderReadmeContent = fmt.Sprint("internal/pkg/", projectName)
+		projectSubFolderReadmeContent = fmt.Sprint("### `/internal/pkg/", projectName, "`")
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 		// Create pkg folder
 		os.Mkdir("pkg", 0755)
@@ -88,7 +88,7 @@ func createProjectStructure() {
 		projectSubFolder = fmt.Sprint("pkg/", projectName)
 		os.Mkdir(projectSubFolder, 0755)
 		projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName, "/README.md")
-		projectSubFolderReadmeContent = fmt.Sprint("pkg/", projectName)
+		projectSubFolderReadmeContent = fmt.Sprint("### `/pkg/", projectName, "`")
 		ioutil.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
 		// Create scripts folder
 		os.Mkdir("scripts", 0755)
