@@ -32,7 +32,7 @@
 
 ---
 ### Features
-- Structuring Go Applications
+- Build structure for Go apps
 
 #### How to use gocreate?
 Download the latest gocreate binary
