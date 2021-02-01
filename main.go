@@ -17,6 +17,7 @@ func main() {
 	createProjectFiles()
 }
 
+// Create Project Structure
 func createProjectStructure() {
 	if isNotExist(projectName) {
 		// Create project folder
@@ -127,6 +128,7 @@ func createProjectStructure() {
 	}
 }
 
+// Create Project Files
 func createProjectFiles() {
 	// Create main.go file
 	main := `package main
@@ -307,6 +309,7 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
 	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	ioutil.WriteFile("README.md", []byte(readme), 0644)
+	// Edit the files and turn " into `
 	read, err := ioutil.ReadFile("README.md")
 	newContents := strings.Replace(string(read), (`"`), ("`"), -1)
 	err = ioutil.WriteFile("README.md", []byte(newContents), 0)
@@ -318,6 +321,7 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	}
 }
 
+// Checks if a directory dosent exists
 func isNotExist(filename string) bool {
 	info, err := os.Stat(filename)
 	if os.IsNotExist(err) {
