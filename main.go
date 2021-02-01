@@ -152,7 +152,7 @@ go 1.15`
 *.so
 *.dylib
 
-# Test binary, built with 'go test -c'
+# Test binary, built with "go test -c"
 *.test
 
 # Output of the go coverage tool, specifically when used with LiteIDE
@@ -307,10 +307,12 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
 	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	ioutil.WriteFile("README.md", []byte(readme), 0644)
-	// change the content of the files now
 	read, err := ioutil.ReadFile("README.md")
 	newContents := strings.Replace(string(read), (`"`), ("`"), -1)
 	err = ioutil.WriteFile("README.md", []byte(newContents), 0)
+	read, err = ioutil.ReadFile(".gitignore")
+	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
+	err = ioutil.WriteFile(".gitignore", []byte(newContents), 0)
 	if err != nil {
 		log.Println(err)
 	}
