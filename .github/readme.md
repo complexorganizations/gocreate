@@ -53,11 +53,11 @@ gocreate PROJECT_NAME
 ---
 ### Credits
 
-[golang-standards](https://github.com/golang-standards/project-layout)
+Open Source Community
 
 ---
 ### License
 
 Copyright © 2021 [ComplexOrganizations](https://github.com/complexorganizations)
 
-This project is MIT licensed.
+This project is unlicensed.
