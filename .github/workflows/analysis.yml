@@ -1,6 +1,5 @@
 name: Go
 on: [push, pull_request]
-
 jobs:
   build:
     name: Build
@@ -16,8 +15,8 @@ jobs:
       - name: Get dependencies
         run: go get -v
       - name: Run Test
-        run: go run . NodeJS
+        run: go run . Project-One
       - name: Build Test
         run: go build -v .
       - name: Run the build
-        run: ./gocreate Actions
+        run: ./gocreate Project-Two
