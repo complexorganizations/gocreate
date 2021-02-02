@@ -53,7 +53,8 @@ gocreate PROJECT_NAME
 ---
 ### Credits
 
-Open Source Community
+- [golang-standards](https://github.com/golang-standards/project-layout)
+- Open Source Community
 
 ---
 ### License
