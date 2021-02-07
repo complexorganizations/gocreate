@@ -1,5 +1,4 @@
-### gocreate
-
+<h1 align="center">Go Create</h1>
 <p align="center">
   <a href="https://github.com/complexorganizations/gocreate/releases">
     <img alt="Release" src="https://img.shields.io/github/v/release/complexorganizations/gocreate" target="_blank" />
@@ -33,28 +32,44 @@
 There is no official go project specification framework or widely agreed standard other than `go.mod` and this tool is based on the golang-standard project.
 
 ---
-### Features
-- Build structure for Go apps
+### What is go?
+Go is a compiled, statically typed programming language developed by Robert Griesemer, Rob Pike, and Ken Thompson at Google. Go is syntactically similar to C, but with memory protection, collection of waste, structural typing, and concurrency in the CSP format.
 
-#### How to use gocreate?
-Download the latest gocreate binary
+---
+### Features
+- Structure go applications
+
+---
+### Installation
+Download the latest `gocreate` binary
 ```
 go get -v -u github.com/complexorganizations/gocreate
 ```
-Create a project using `gocreate`
+Create a project applications using `gocreate`
 ```
 gocreate PROJECT_NAME
 ```
 
 ---
-### Author
+### Compatibility
+| OS              | Supported          |
+| --------------  | ------------------ |
+| Darwin          |:heavy_check_mark:  |
+| FreeBSD         |:heavy_check_mark:  |
+| Linux           |:heavy_check_mark:  |
+| NetBSD          |:heavy_check_mark:  |
+| OpenBSD         |:heavy_check_mark:  |
+| Plan 9          |:heavy_check_mark:  |
+| Solaris         |:heavy_check_mark:  |
+| Windows         |:heavy_check_mark:  |
 
+---
+### Author
 * Name: Prajwal Koirala
 * Website: [prajwalkoirala.com](https://www.prajwalkoirala.com)
 
 ---
 ### Credits
-
 - [golang-standards](https://github.com/golang-standards/project-layout)
 - Open Source Community
 
