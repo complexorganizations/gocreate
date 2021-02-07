@@ -32,10 +32,6 @@
 There is no official go project specification framework or widely agreed standard other than `go.mod` and this tool is based on the golang-standard project.
 
 ---
-### What is go?
-Go is a compiled, statically typed programming language developed by Robert Griesemer, Rob Pike, and Ken Thompson at Google. Go is syntactically similar to C, but with memory protection, collection of waste, structural typing, and concurrency in the CSP format.
-
----
 ### Features
 - Structure go applications
 
