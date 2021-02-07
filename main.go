@@ -19,7 +19,7 @@ func main() {
 
 // Create Project Structure
 func createProjectStructure() {
-	if isNotExist(projectName) {
+	if !folderExists(projectName) {
 		// Create project folder
 		os.Mkdir(projectName, 0755)
 		os.Chdir(projectName)
@@ -330,7 +330,7 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 }
 
 // Check if a folder exists
-func isNotExist(foldername string) bool {
+func folderExists(foldername string) bool {
 	info, err := os.Stat(foldername)
 	if os.IsNotExist(err) {
 		return false
