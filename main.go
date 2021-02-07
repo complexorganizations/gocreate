@@ -19,7 +19,7 @@ func main() {
 
 // Create Project Structure
 func createProjectStructure() {
-	if isNotExist(projectName) {
+	if !folderExists(projectName) {
 		// Create project folder
 		os.Mkdir(projectName, 0755)
 		os.Chdir(projectName)
@@ -140,12 +140,21 @@ import (
 func main() {
 	fmt.Println("Hello, World!")
 }`
+	ioutil.WriteFile("main.go", []byte(main), 0644)
 	// Create go.mod file
 	gomod := `module main
 
 go 1.15`
+	ioutil.WriteFile("go.mod", []byte(gomod), 0644)
+	read, err := ioutil.ReadFile("go.mod")
+	if err != nil {
+		log.Println(err)
+	}
+	newContents := strings.Replace(string(read), ("main"), (projectName), -1)
+	ioutil.WriteFile("go.mod", []byte(newContents), 0)
 	// Create go.sum file
 	gosum := ""
+	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
 *.exe
@@ -162,6 +171,13 @@ go 1.15`
 
 # Dependency directories (remove the comment below to include it)
 # vendor/`
+	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
+	read, err = ioutil.ReadFile(".gitignore")
+	if err != nil {
+		log.Println(err)
+	}
+	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
+	ioutil.WriteFile(".gitignore", []byte(newContents), 0)
 	// Create README.md file
 	readme := `# Standard Go Project Layout
 
@@ -304,28 +320,17 @@ See the ["/website"](website/README.md) directory for examples.
 Some Go projects do have a "src" folder, but it usually happens when the devs came from the Java world where it's a common pattern. If you can help yourself try not to adopt this Java pattern. You really don't want your Go code or Go projects to look like Java :-)
 
 Don't confuse the project level "/src" directory with the "/src" directory Go uses for its workspaces as described in ["How to Write Go Code"](https://golang.org/doc/code.html). The "$GOPATH" environment variable points to your (current) workspace (by default it points to "$HOME/go" on non-windows systems). This workspace includes the top level "/pkg", "/bin" and "/src" directories. Your actual project ends up being a sub-directory under "/src", so if you have the "/src" directory in your project the project path will look like this: "/some/path/to/workspace/src/your_project/src/your_code.go". Note that with Go 1.11 it's possible to have your project outside of your "GOPATH", but it still doesn't mean it's a good idea to use this layout pattern.`
-	ioutil.WriteFile("main.go", []byte(main), 0644)
-	ioutil.WriteFile("go.mod", []byte(gomod), 0644)
-	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
-	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	ioutil.WriteFile("README.md", []byte(readme), 0644)
-	// Read the files, and turn " into `
-	read, err := ioutil.ReadFile("README.md")
-	if err != nil {
-		log.Println(err)
-	}
-	newContents := strings.Replace(string(read), (`"`), ("`"), -1)
-	ioutil.WriteFile("README.md", []byte(newContents), 0)
-	read, err = ioutil.ReadFile(".gitignore")
+	read, err = ioutil.ReadFile("README.md")
 	if err != nil {
 		log.Println(err)
 	}
 	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
-	ioutil.WriteFile(".gitignore", []byte(newContents), 0)
+	ioutil.WriteFile("README.md", []byte(newContents), 0)
 }
 
 // Check if a folder exists
-func isNotExist(foldername string) bool {
+func folderExists(foldername string) bool {
 	info, err := os.Stat(foldername)
 	if os.IsNotExist(err) {
 		return false
