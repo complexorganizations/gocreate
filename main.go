@@ -321,11 +321,11 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	}
 }
 
-// Checks if a directory dosent exists
-func isNotExist(filename string) bool {
-	info, err := os.Stat(filename)
+// Check if a folder exists
+func isNotExist(foldername string) bool {
+	info, err := os.Stat(foldername)
 	if os.IsNotExist(err) {
-		return true
+		return false
 	}
-	return !info.IsDir()
+	return info.IsDir()
 }
