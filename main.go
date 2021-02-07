@@ -309,16 +309,19 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
 	ioutil.WriteFile(".gitignore", []byte(gitignore), 0644)
 	ioutil.WriteFile("README.md", []byte(readme), 0644)
-	// Edit the files and turn " into `
+	// Read the files, and turn " into `
 	read, err := ioutil.ReadFile("README.md")
-	newContents := strings.Replace(string(read), (`"`), ("`"), -1)
-	err = ioutil.WriteFile("README.md", []byte(newContents), 0)
-	read, err = ioutil.ReadFile(".gitignore")
-	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
-	err = ioutil.WriteFile(".gitignore", []byte(newContents), 0)
 	if err != nil {
 		log.Println(err)
 	}
+	newContents := strings.Replace(string(read), (`"`), ("`"), -1)
+	ioutil.WriteFile("README.md", []byte(newContents), 0)
+	read, err = ioutil.ReadFile(".gitignore")
+	if err != nil {
+		log.Println(err)
+	}
+	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
+	ioutil.WriteFile(".gitignore", []byte(newContents), 0)
 }
 
 // Check if a folder exists
