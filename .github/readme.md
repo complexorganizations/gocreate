@@ -30,6 +30,8 @@
   </a>
 </p>
 
+There is no official go project specification framework or widely agreed standard other than `go.mod` and this tool is based on the golang-standard project.
+
 ---
 ### Features
 - Build structure for Go apps
