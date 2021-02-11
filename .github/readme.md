@@ -39,7 +39,7 @@ There is no official go project specification framework or widely agreed standar
 ### Installation
 Download the latest `gocreate` binary
 ```
-go get -v -u github.com/complexorganizations/gocreate
+go get -v github.com/complexorganizations/gocreate
 ```
 Create a project applications using `gocreate`
 ```
