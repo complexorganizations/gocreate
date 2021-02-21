@@ -143,7 +143,7 @@ func main() {
 	// Create go.mod file
 	gomod := `module main
 
-go 1.15`
+go 1.16`
 	ioutil.WriteFile("go.mod", []byte(gomod), 0644)
 	read, err := ioutil.ReadFile("go.mod")
 	if err != nil {
