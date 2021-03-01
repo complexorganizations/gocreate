@@ -123,7 +123,7 @@ func createProjectStructure() {
 		os.Mkdir("website", 0755)
 		ioutil.WriteFile("website/README.md", []byte("### `/website`"), 0644)
 	} else {
-		log.Fatal("Error: Couldn't create project.")
+		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
 }
 
