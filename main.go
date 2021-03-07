@@ -155,6 +155,9 @@ go 1.16`
 	// Create go.sum file
 	gosum := ""
 	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
+	// Create makefile file
+	makeFile := "# Note: Call scripts from /scripts/"
+	ioutil.WriteFile("Makefile", []byte(makeFile), 0644)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
 *.exe
