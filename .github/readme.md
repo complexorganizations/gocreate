@@ -43,7 +43,75 @@ go get -v github.com/complexorganizations/gocreate
 ```
 Create a project applications using `gocreate`
 ```
-gocreate PROJECT_NAME
+gocreate {PROJECT}
+```
+
+---
+### Structure
+```
+{PROJECT}
+├── api
+│   └── README.md
+├── assets
+│   └── README.md
+├── build
+│   ├── ci
+│   │   └── README.md
+│   ├── package
+│   │   └── README.md
+│   └── README.md
+├── cmd
+│   ├── {PROJECT}
+│   │   └── README.md
+│   └── README.md
+├── configs
+│   └── README.md
+├── deployments
+│   └── README.md
+├── docs
+│   └── README.md
+├── examples
+│   └── README.md
+├── githooks
+│   └── README.md
+├── go.mod
+├── go.sum
+├── init
+│   └── README.md
+├── internal
+│   ├── app
+│   │   └── {PROJECT}
+│   │       └── README.md
+│   ├── pkg
+│   │   └── {PROJECT}
+│   │       └── README.md
+│   └── README.md
+├── main.go
+├── pkg
+│   ├── {PROJECT}
+│   │   └── README.md
+│   └── README.md
+├── README.md
+├── scripts
+│   └── README.md
+├── test
+│   └── README.md
+├── third_party
+│   └── README.md
+├── tools
+│   └── README.md
+├── vendor
+│   └── README.md
+├── web
+│   ├── app
+│   │   └── README.md
+│   ├── README.md
+│   ├── static
+│   │   └── README.md
+│   └── template
+│       └── README.md
+└── website
+    └── README.md
 ```
 
 ---
