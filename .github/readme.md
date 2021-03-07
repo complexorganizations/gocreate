@@ -76,6 +76,7 @@ gocreate {PROJECT}
 │   └── README.md
 ├── go.mod
 ├── go.sum
+├── Makefile
 ├── init
 │   └── README.md
 ├── internal
