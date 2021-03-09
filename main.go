@@ -17,10 +17,12 @@ func main() {
 	}
 }
 
+var (
+	projectName = os.Args[1]
+)
+
 // Create Project Structure
 func createProjectStructure() {
-	// Project Name
-	projectName := os.Args[1]
 	if !folderExists(projectName) {
 		// Create project folder
 		os.Mkdir(projectName, 0755)
@@ -132,8 +134,6 @@ func createProjectStructure() {
 
 // Create Project Files
 func createProjectFiles() {
-	// Project Name
-	projectName := os.Args[1]
 	// Create main.go file
 	main := `package main
 
