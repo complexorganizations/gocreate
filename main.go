@@ -13,8 +13,12 @@ var (
 )
 
 func main() {
-	createProjectStructure()
-	createProjectFiles()
+	if len(os.Args) > 1 {
+		createProjectStructure()
+		createProjectFiles()
+	} else {
+		os.Exit(0)
+	}
 }
 
 // Create Project Structure
