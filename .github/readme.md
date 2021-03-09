@@ -29,6 +29,12 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://snapcraft.io/gocreate">
+    <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+  </a>
+</p>
+
 There is no official go project specification framework or widely agreed standard other than `go.mod` and this tool is based on the golang-standard project.
 
 ---
