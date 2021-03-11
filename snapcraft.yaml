@@ -3,8 +3,7 @@ version: git
 summary: Create .go Application Structure
 description: Structuring Go Applications
 confinement: strict
-base: bare
-
+base: core18
 parts:
   gocreate:
     plugin: go
@@ -13,7 +12,6 @@ parts:
     source-type: git
     build-packages:
       - gcc
-
 apps:
   gocreate:
     command: bin/gocreate
