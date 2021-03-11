@@ -1,5 +1,5 @@
 name: gocreate
-version: 1.0.0
+version: "1.0.0"
 summary: Create .go Application Structure
 description: Structuring Go Applications
 grade: stable
@@ -16,4 +16,4 @@ parts:
 
 apps:
   gocreate:
-    command: gocreate
+    command: bin/gocreate
