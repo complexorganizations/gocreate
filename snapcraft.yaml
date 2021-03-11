@@ -1,6 +1,6 @@
 name: gocreate
 version: git
-base: bare
+base: core
 grade: stable
 confinement: strict
 summary: Create .go Application Structure
