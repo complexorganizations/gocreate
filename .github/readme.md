@@ -1,4 +1,4 @@
-<h1 align="center">Go Create</h1>
+<h1 align="center">GoCreate</h1>
 <p align="center">
   <a href="https://github.com/complexorganizations/gocreate/releases">
     <img alt="Release" src="https://img.shields.io/github/v/release/complexorganizations/gocreate" target="_blank" />
