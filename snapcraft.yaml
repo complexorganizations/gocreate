@@ -1,12 +1,10 @@
 name: gocreate
 version: git
+grade: stable
 summary: Create .go Application Structure
 description: Structuring Go Applications
-grade: stable
 confinement: strict
-license: unlicense
 base: bare
-
 parts:
   gocreate:
     plugin: go
@@ -15,7 +13,6 @@ parts:
     source-type: git
     build-packages:
       - gcc
-
 apps:
   gocreate:
     command: bin/gocreate
