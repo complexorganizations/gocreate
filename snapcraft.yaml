@@ -3,9 +3,9 @@ version: git
 summary: Create .go Application Structure
 description: Structuring Go Applications
 confinement: strict
-base: core
+base: core18
 parts:
-  gocreate:
+  test-httplab:
     plugin: go
     go-importpath: github.com/complexorganizations/gocreate
     source: .
@@ -13,5 +13,5 @@ parts:
     build-packages:
       - gcc
 apps:
-  gocreate:
+  sight:
     command: bin/gocreate
