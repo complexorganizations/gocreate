@@ -3,7 +3,7 @@ version: git
 summary: Create .go Application Structure
 description: Structuring Go Applications
 confinement: strict
-base: bare
+base: core
 parts:
   gocreate:
     plugin: go
