@@ -1,5 +1,5 @@
 name: gocreate
-version: "1.0.0"
+version: git
 summary: Create .go Application Structure
 description: Structuring Go Applications
 grade: stable
@@ -13,6 +13,8 @@ parts:
     go-importpath: github.com/complexorganizations/gocreate
     source: .
     source-type: git
+    build-packages:
+      - gcc
 
 apps:
   gocreate:
