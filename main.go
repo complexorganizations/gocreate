@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	// Check for arguments
 	if len(os.Args) > 1 {
 		systemRepositoryChecker()
 		createProjectStructure()
@@ -18,6 +19,7 @@ func main() {
 	}
 }
 
+// Check if a repository already exists
 func systemRepositoryChecker() {
 	projectName := os.Args[1]
 	if folderExists(projectName) {
