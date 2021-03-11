@@ -1,17 +1,19 @@
 name: gocreate
 version: git
+grade: stable
+confinement: strict
 summary: Create .go Application Structure
 description: Structuring Go Applications
-confinement: strict
-base: core18
+license: unlicense
+base: bare
+
 parts:
-  test-httplab:
+  gocreate:
     plugin: go
     go-importpath: github.com/complexorganizations/gocreate
     source: .
     source-type: git
-    build-packages:
-      - gcc
+
 apps:
-  sight:
+  gocreate:
     command: bin/gocreate
