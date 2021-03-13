@@ -93,7 +93,6 @@ gocreate {PROJECT}
 │   │       └── README.md
 │   └── README.md
 ├── main.go
-├── Makefile
 ├── pkg
 │   ├── {PROJECT}
 │   │   └── README.md
