@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -9,13 +10,27 @@ import (
 )
 
 func main() {
+	commandLineChecker()
+	systemRepositoryChecker()
+	createProjectStructure()
+	createProjectFiles()
+}
+
+func commandLineChecker() {
 	// Check for arguments
-	if len(os.Args) > 1 {
-		systemRepositoryChecker()
-		createProjectStructure()
-		createProjectFiles()
-	} else {
+	if !len(os.Args) > 1 {
 		os.Exit(0)
+	}
+	projectName := os.Args[1]
+	forceDelete := flag.Bool("F", false, "Force delete the directory")
+	flag.Parse()
+	if *forceDelete {
+		if folderExists(projectName) {
+			os.RemoveAll(projectName)
+		}
+		if fileExists(projectName) {
+			os.Remove(projectName)
+		}
 	}
 }
 
