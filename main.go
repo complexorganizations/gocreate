@@ -18,7 +18,7 @@ func main() {
 
 func commandLineChecker() {
 	// Check for arguments
-	if !len(os.Args) > 1 {
+	if len(os.Args) < 1 {
 		os.Exit(0)
 	}
 	projectName := os.Args[1]
