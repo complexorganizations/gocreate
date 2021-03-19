@@ -11,9 +11,9 @@ import (
 func main() {
 	// Check for arguments
 	if len(os.Args) > 1 {
-		systemRepositoryChecker()
-		createProjectStructure()
-		createProjectFiles()
+		defer systemRepositoryChecker()
+		defer createProjectStructure()
+		defer createProjectFiles()
 	} else {
 		os.Exit(0)
 	}
