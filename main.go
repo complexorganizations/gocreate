@@ -11,7 +11,7 @@ import (
 var projectName string
 
 func init() {
-	// argument checker
+	// Argument checker
 	if len(os.Args) > 1 {
 		projectName = os.Args[1]
 	} else {
