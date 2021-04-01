@@ -11,26 +11,23 @@ import (
 var projectName string
 
 func init() {
+	// argument checker
 	if len(os.Args) > 1 {
 		projectName = os.Args[1]
 	} else {
 		os.Exit(0)
 	}
-}
-
-func main() {
-	systemRepositoryChecker()
-	createProjectStructure()
-	createProjectFiles()
-}
-
-// Check if a repository already exists
-func systemRepositoryChecker() {
+	// Check if a repository already exists
 	if folderExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	} else if fileExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
+}
+
+func main() {
+	createProjectStructure()
+	createProjectFiles()
 }
 
 // Create Project Structure
