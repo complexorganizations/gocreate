@@ -8,20 +8,24 @@ import (
 	"strings"
 )
 
-func main() {
-	// Check for arguments
+var projectName string
+
+func init() {
 	if len(os.Args) > 1 {
-		systemRepositoryChecker()
-		createProjectStructure()
-		createProjectFiles()
+		projectName = os.Args[1]
 	} else {
 		os.Exit(0)
 	}
 }
 
+func main() {
+	systemRepositoryChecker()
+	createProjectStructure()
+	createProjectFiles()
+}
+
 // Check if a repository already exists
 func systemRepositoryChecker() {
-	projectName := os.Args[1]
 	if folderExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	} else if fileExists(projectName) {
@@ -31,8 +35,6 @@ func systemRepositoryChecker() {
 
 // Create Project Structure
 func createProjectStructure() {
-	// Project Name
-	projectName := os.Args[1]
 	// Create project folder
 	os.Mkdir(projectName, 0755)
 	os.Chdir(projectName)
@@ -140,8 +142,6 @@ func createProjectStructure() {
 
 // Create Project Files
 func createProjectFiles() {
-	// Project Name
-	projectName := os.Args[1]
 	// Create main.go file
 	main := `package main
 
