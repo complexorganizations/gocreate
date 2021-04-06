@@ -15,7 +15,7 @@ func init() {
 	if len(os.Args) > 1 {
 		projectName = os.Args[1]
 	} else {
-		os.Exit(0)
+		log.Fatal("Error: No argument passed.")
 	}
 	// Check if a repository already exists
 	if folderExists(projectName) {
