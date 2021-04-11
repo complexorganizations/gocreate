@@ -164,6 +164,15 @@ go 1.16`
 	// Create go.sum file
 	gosum := ""
 	ioutil.WriteFile("go.sum", []byte(gosum), 0644)
+	// Create Dockerfile file
+	dockerFile := `FROM golang:latest
+LABEL maintainer="John Doe <example@example.com>"
+WORKDIR /app
+COPY . .
+RUN go mod download
+RUN go build -o main .
+CMD ["./main"]`
+	ioutil.WriteFile("Dockerfile", []byte(dockerFile), 0644)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
 *.exe
