@@ -67,13 +67,14 @@ gocreate {PROJECT}
 │   │   └── README.md
 │   └── README.md
 ├── cmd
-│   ├── {PROJECT}
-│   │   └── README.md
-│   └── README.md
+│   ├── README.md
+│   └── {PROJECT}
+│       └── README.md
 ├── configs
 │   └── README.md
 ├── deployments
 │   └── README.md
+├── Dockerfile
 ├── docs
 │   └── README.md
 ├── examples
@@ -94,9 +95,9 @@ gocreate {PROJECT}
 │   └── README.md
 ├── main.go
 ├── pkg
-│   ├── {PROJECT}
-│   │   └── README.md
-│   └── README.md
+│   ├── README.md
+│   └── {PROJECT}
+│       └── README.md
 ├── README.md
 ├── scripts
 │   └── README.md
