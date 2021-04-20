@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -10,11 +11,24 @@ import (
 var projectName string
 
 func init() {
-	// Argument checker
+	var forceCreate bool
 	if len(os.Args) > 1 {
-		projectName = os.Args[1]
+		// Supported Flags
+		tempProjectName := flag.String("name", "main", "Project names")
+		tempForceCreate := flag.Bool("force", false, "Force create")
+		flag.Parse()
+		projectName = *tempProjectName
+		forceCreate = *tempForceCreate
 	} else {
-		log.Fatal("Error: No argument passed.")
+		log.Fatal("Error: No argument supplied.")
+	}
+	// Remove the file by force
+	if forceCreate {
+		if folderExists(projectName) {
+			os.RemoveAll(projectName)
+		} else if fileExists(projectName) {
+			os.Remove(projectName)
+		}
 	}
 	// Check if a repository already exists
 	if folderExists(projectName) {
