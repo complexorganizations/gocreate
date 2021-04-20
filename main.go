@@ -11,16 +11,13 @@ import (
 var projectName string
 
 func init() {
-	var forceCreate bool
-	// Argument checker
-	if len(os.Args) > 1 {
-		tempProjectName := flag.String("name", "foo", "The name of the project")
-		tempForceCreate := flag.Bool("force", false, "Should you force create the project")
-		projectName = *tempProjectName
-		forceCreate = *tempForceCreate
-	} else {
-		log.Fatal("Error: No argument passed.")
-	}
+	// Supported Flags
+	tempProjectName := flag.String("name", "main", "The name of the project")
+	tempForceCreate := flag.Bool("force", false, "Should you force create the project")
+	flag.Parse()
+	projectName = *tempProjectName
+	forceCreate := *tempForceCreate
+	// Remove the file by force
 	if forceCreate {
 		if folderExists(projectName) {
 			os.RemoveAll(projectName)
