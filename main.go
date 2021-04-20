@@ -14,7 +14,7 @@ func init() {
 	var forceCreate bool
 	if len(os.Args) > 1 {
 		// Supported Flags
-		tempProjectName := flag.String("name", "main", "Project names")
+		tempProjectName := flag.String("name", "main", "Project name")
 		tempForceCreate := flag.Bool("force", false, "Force create")
 		flag.Parse()
 		projectName = *tempProjectName
