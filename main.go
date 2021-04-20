@@ -12,8 +12,8 @@ var projectName string
 
 func init() {
 	// Supported Flags
-	tempProjectName := flag.String("name", "main", "The name of the project")
-	tempForceCreate := flag.Bool("force", false, "Should you force create the project")
+	tempProjectName := flag.String("name", "main", "Project names")
+	tempForceCreate := flag.Bool("force", false, "Force create")
 	flag.Parse()
 	projectName = *tempProjectName
 	forceCreate := *tempForceCreate
