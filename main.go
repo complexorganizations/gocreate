@@ -22,6 +22,10 @@ func init() {
 	} else {
 		log.Fatal("Error: No argument supplied.")
 	}
+	// Project name empty
+	if projectName == "" {
+		log.Fatal("Error: No argument supplied.")
+	}
 	// Remove the file by force
 	if forceCreate {
 		if folderExists(projectName) {
