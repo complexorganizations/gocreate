@@ -11,12 +11,13 @@ import (
 var projectName string
 
 func init() {
+	var forceCreate bool
 	// Argument checker
 	if len(os.Args) > 1 {
 		tempProjectName := flag.String("name", "foo", "The name of the project")
 		tempForceCreate := flag.Bool("force", false, "Should you force create the project")
 		projectName = *tempProjectName
-		forceCreate := *tempForceCreate
+		forceCreate = *tempForceCreate
 	} else {
 		log.Fatal("Error: No argument passed.")
 	}
