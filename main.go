@@ -11,12 +11,17 @@ import (
 var projectName string
 
 func init() {
-	// Supported Flags
-	tempProjectName := flag.String("name", "main", "Project names")
-	tempForceCreate := flag.Bool("force", false, "Force create")
-	flag.Parse()
-	projectName = *tempProjectName
-	forceCreate := *tempForceCreate
+	var forceCreate bool
+	if len(os.Args) > 1 {
+		// Supported Flags
+		tempProjectName := flag.String("name", "main", "Project names")
+		tempForceCreate := flag.Bool("force", false, "Force create")
+		flag.Parse()
+		projectName = *tempProjectName
+		forceCreate = *tempForceCreate
+	} else {
+		log.Fatal("Error: No argument supplied.")
+	}
 	// Remove the file by force
 	if forceCreate {
 		if folderExists(projectName) {
