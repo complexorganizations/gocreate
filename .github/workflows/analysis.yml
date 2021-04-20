@@ -15,8 +15,8 @@ jobs:
       - name: Get dependencies
         run: go get -v
       - name: Run Test
-        run: go run . Project-One
+        run: go run main.go -name=First_Project
       - name: Build Test
         run: go build -v .
       - name: Run the build
-        run: ./gocreate Project-Two
+        run: ./gocreate -name=Second_Project
