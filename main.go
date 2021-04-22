@@ -23,7 +23,7 @@ func init() {
 		log.Fatal("Error: There is no argument.")
 	}
 	// Project name empty
-	if projectName == "" {
+	if projectName == "" || projectName == "main" {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
