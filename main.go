@@ -28,7 +28,7 @@ func init() {
 	}
 	// Invalid stuff
 	if strings.Contains(projectName, "<") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") {
-		log.Fatalf("Error: %s isn't a legitimate project name.", projectName)
+		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
 	}
 	// Remove the file by force
 	if forceCreate {
