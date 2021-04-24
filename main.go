@@ -9,6 +9,7 @@ import (
 )
 
 var projectName string
+var err error
 
 func init() {
 	var forceCreate bool
@@ -33,9 +34,15 @@ func init() {
 	// Remove the file by force
 	if forceCreate {
 		if folderExists(projectName) {
-			os.RemoveAll(projectName)
+			err = os.RemoveAll(projectName)
+			if err != nil {
+				log.Fatal(err)
+			}
 		} else if fileExists(projectName) {
-			os.Remove(projectName)
+			err = os.Remove(projectName)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 	// Check if a repository already exists
