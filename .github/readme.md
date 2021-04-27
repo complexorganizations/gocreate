@@ -56,7 +56,6 @@ gocreate -name={PROJECT}
 ### Flags
 ```
 -name=example (Project name)
--force (Force create)
 ```
 
 ---
