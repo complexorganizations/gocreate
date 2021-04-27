@@ -12,14 +12,11 @@ var projectName string
 var err error
 
 func init() {
-	var forceCreate bool
 	if len(os.Args) > 1 {
 		// Supported Flags
 		tempProjectName := flag.String("name", "main", "Project name")
-		tempForceCreate := flag.Bool("force", false, "Force create")
 		flag.Parse()
 		projectName = *tempProjectName
-		forceCreate = *tempForceCreate
 	} else {
 		log.Fatal("Error: There is no argument.")
 	}
@@ -30,20 +27,6 @@ func init() {
 	// Invalid stuff
 	if strings.Contains(projectName, "<") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") {
 		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
-	}
-	// Remove the file by force
-	if forceCreate {
-		if folderExists(projectName) {
-			err = os.RemoveAll(projectName)
-			if err != nil {
-				log.Fatal(err)
-			}
-		} else if fileExists(projectName) {
-			err = os.Remove(projectName)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
 	}
 	// Check if a repository already exists
 	if folderExists(projectName) {
