@@ -16,14 +16,14 @@ var (
 func init() {
 	if len(os.Args) > 1 {
 		// Supported Flags
-		tempProjectName := flag.String("name", "/user/example/folder/file", "The name of the go project.")
+		tempProjectName := flag.String("name", "/user/example/folder", "The name of the go project.")
 		flag.Parse()
 		projectName = *tempProjectName
 	} else {
 		log.Fatal("Error: The project name was not been given.")
 	}
 	// Project name empty
-	if projectName == "" || projectName == "/user/example/folder/file" {
+	if projectName == "" || projectName == "/user/example/folder" {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
