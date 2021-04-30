@@ -53,12 +53,6 @@ gocreate -name={PROJECT}
 ```
 
 ---
-### Flags
-```
--name=example (Project name)
-```
-
----
 ### Structure
 ```
 {PROJECT}
