@@ -14,11 +14,11 @@ var err error
 func init() {
 	if len(os.Args) > 1 {
 		// Supported Flags
-		tempProjectName := flag.String("name", "/user/example/folder/file", "Project name")
+		tempProjectName := flag.String("name", "/user/example/folder/file", "The name of the go project.")
 		flag.Parse()
 		projectName = *tempProjectName
 	} else {
-		log.Fatal("Error: There is no argument.")
+		log.Fatal("Error: The project name was not been given.")
 	}
 	// Project name empty
 	if projectName == "" || projectName == "/user/example/folder/file" {
