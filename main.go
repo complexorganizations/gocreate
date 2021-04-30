@@ -8,8 +8,10 @@ import (
 	"strings"
 )
 
-var projectName string
-var err error
+var (
+	projectName string
+	err         error
+)
 
 func init() {
 	if len(os.Args) > 1 {
