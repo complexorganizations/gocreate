@@ -23,7 +23,7 @@ func init() {
 		log.Fatal("Error: The project name was not been given.")
 	}
 	// Project name empty
-	if projectName == "" || projectName == "/user/example/folder" {
+	if len(projectName) < 1 || projectName == "/user/example/folder" {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
