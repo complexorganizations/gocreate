@@ -377,3 +377,10 @@ func fileExists(filename string) bool {
 	}
 	return !info.IsDir()
 }
+
+// Handle all the errors
+func handleErrors(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
