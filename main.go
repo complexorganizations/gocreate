@@ -231,9 +231,7 @@ go 1.16`
 	err = os.WriteFile("go.mod", []byte(gomod), 0644)
 	handleErrors(err)
 	read, err := os.ReadFile("go.mod")
-	if err != nil {
-		log.Println(err)
-	}
+	handleErrors(err)
 	newContents := strings.Replace(string(read), ("main"), (projectName), -1)
 	err = os.WriteFile("go.mod", []byte(newContents), 0)
 	handleErrors(err)
@@ -250,6 +248,11 @@ RUN go mod download
 RUN go build -o main .
 CMD ["./main"]`
 	err = os.WriteFile("Dockerfile", []byte(dockerFile), 0644)
+	handleErrors(err)
+	read, err = os.ReadFile("Dockerfile")
+	handleErrors(err)
+	newContents = strings.Replace(string(read), ("main"), (projectName), -1)
+	err = os.WriteFile("Dockerfile", []byte(newContents), 0)
 	handleErrors(err)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
@@ -270,9 +273,7 @@ CMD ["./main"]`
 	err = os.WriteFile(".gitignore", []byte(gitignore), 0644)
 	handleErrors(err)
 	read, err = os.ReadFile(".gitignore")
-	if err != nil {
-		log.Println(err)
-	}
+	handleErrors(err)
 	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
 	err = os.WriteFile(".gitignore", []byte(newContents), 0)
 	handleErrors(err)
@@ -421,9 +422,7 @@ Don't confuse the project level "/src" directory with the "/src" directory Go us
 	err = os.WriteFile("README.md", []byte(readme), 0644)
 	handleErrors(err)
 	read, err = os.ReadFile("README.md")
-	if err != nil {
-		log.Println(err)
-	}
+	handleErrors(err)
 	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
 	err = os.WriteFile("README.md", []byte(newContents), 0)
 	handleErrors(err)
