@@ -449,6 +449,6 @@ func fileExists(filename string) bool {
 // Log errors
 func handleErrors(err error) {
 	if err != nil {
-		log.Println(err)
+		log.Print(err)
 	}
 }
