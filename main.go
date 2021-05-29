@@ -20,14 +20,17 @@ func init() {
 		flag.Parse()
 		projectName = *tempProjectName
 	} else {
+		flag.Usage()
 		log.Fatal("Error: The project name was not been given.")
 	}
 	// Project name empty
 	if len(projectName) < 1 || projectName == "/user/example/folder" {
+		flag.Usage()
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
 	if strings.Contains(projectName, "<") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") {
+		flag.Usage()
 		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
 	}
 	// Check if a repository already exists
