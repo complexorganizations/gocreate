@@ -20,12 +20,10 @@ func init() {
 		flag.Parse()
 		projectName = *tempProjectName
 	} else {
-		flag.Usage()
 		log.Fatal("Error: The project name was not been given.")
 	}
 	// Project name empty
 	if len(projectName) < 1 || projectName == "/user/example/folder" {
-		flag.Usage()
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
