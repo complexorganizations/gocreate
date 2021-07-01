@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -60,43 +59,10 @@ func createProjectStructure() {
 	handleErrors(err)
 	err = os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
 	handleErrors(err)
-	// Create build folder
-	err = os.Mkdir("build", 0755)
-	handleErrors(err)
-	err = os.WriteFile("build/README.md", []byte("### `/build`"), 0644)
-	handleErrors(err)
-	// Create build/ci folder
-	err = os.Mkdir("build/ci", 0755)
-	handleErrors(err)
-	err = os.WriteFile("build/ci/README.md", []byte("### `/build/ci`"), 0644)
-	handleErrors(err)
-	// Create build/package folder
-	err = os.Mkdir("build/package", 0755)
-	handleErrors(err)
-	err = os.WriteFile("build/package/README.md", []byte("### `/build/package`"), 0644)
-	handleErrors(err)
-	// Create cmd folder
-	err = os.Mkdir("cmd", 0755)
-	handleErrors(err)
-	err = os.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0644)
-	handleErrors(err)
-	// Create cmd/ProjectName folder
-	projectSubFolder := fmt.Sprint("cmd/", projectName)
-	err = os.Mkdir(projectSubFolder, 0755)
-	handleErrors(err)
-	projectSubFolderreadmeFile := fmt.Sprint("cmd/", projectName, "/README.md")
-	projectSubFolderReadmeContent := fmt.Sprint("### `/cmd/", projectName, "`")
-	err = os.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
-	handleErrors(err)
 	// Create configs folder
 	err = os.Mkdir("configs", 0755)
 	handleErrors(err)
 	err = os.WriteFile("configs/README.md", []byte("### `/config`"), 0644)
-	handleErrors(err)
-	// Create deployments folder
-	err = os.Mkdir("deployments", 0755)
-	handleErrors(err)
-	err = os.WriteFile("deployments/README.md", []byte("### `/deployments`"), 0644)
 	handleErrors(err)
 	// Create docs folder
 	err = os.Mkdir("docs", 0755)
@@ -108,56 +74,6 @@ func createProjectStructure() {
 	handleErrors(err)
 	err = os.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
 	handleErrors(err)
-	// Create githooks folder
-	err = os.Mkdir("githooks", 0755)
-	handleErrors(err)
-	err = os.WriteFile("githooks/README.md", []byte("### `/githooks`"), 0644)
-	handleErrors(err)
-	// Create init folder
-	err = os.Mkdir("init", 0755)
-	handleErrors(err)
-	err = os.WriteFile("init/README.md", []byte("### `/init`"), 0644)
-	handleErrors(err)
-	// Create internal folder
-	err = os.Mkdir("internal", 0755)
-	handleErrors(err)
-	err = os.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
-	handleErrors(err)
-	// Create internal/app folder
-	err = os.Mkdir("internal/app", 0755)
-	handleErrors(err)
-	// Create internal/app/ProjectName folder
-	projectSubFolder = fmt.Sprint("internal/app/", projectName)
-	err = os.Mkdir(projectSubFolder, 0755)
-	handleErrors(err)
-	projectSubFolderreadmeFile = fmt.Sprint("internal/app/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("### `/internal/app/", projectName, "`")
-	err = os.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
-	handleErrors(err)
-	// Create internal/pkg folder
-	err = os.Mkdir("internal/pkg", 0755)
-	handleErrors(err)
-	// Create internal/pkg/ProjectName folder
-	projectSubFolder = fmt.Sprint("internal/pkg/", projectName)
-	err = os.Mkdir(projectSubFolder, 0755)
-	handleErrors(err)
-	projectSubFolderreadmeFile = fmt.Sprint("internal/pkg/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("### `/internal/pkg/", projectName, "`")
-	err = os.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
-	handleErrors(err)
-	// Create pkg folder
-	err = os.Mkdir("pkg", 0755)
-	handleErrors(err)
-	err = os.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
-	handleErrors(err)
-	// Create pkg/project folder
-	projectSubFolder = fmt.Sprint("pkg/", projectName)
-	err = os.Mkdir(projectSubFolder, 0755)
-	handleErrors(err)
-	projectSubFolderreadmeFile = fmt.Sprint("pkg/", projectName, "/README.md")
-	projectSubFolderReadmeContent = fmt.Sprint("### `/pkg/", projectName, "`")
-	err = os.WriteFile(projectSubFolderreadmeFile, []byte(projectSubFolderReadmeContent), 0644)
-	handleErrors(err)
 	// Create scripts folder
 	err = os.Mkdir("scripts", 0755)
 	handleErrors(err)
@@ -168,45 +84,10 @@ func createProjectStructure() {
 	handleErrors(err)
 	err = os.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	handleErrors(err)
-	// Create third_party folder
-	err = os.Mkdir("third_party", 0755)
-	handleErrors(err)
-	err = os.WriteFile("third_party/README.md", []byte("### `/third_party`"), 0644)
-	handleErrors(err)
-	// Create tools folder
-	err = os.Mkdir("tools", 0755)
-	handleErrors(err)
-	err = os.WriteFile("tools/README.md", []byte("### `/tools`"), 0644)
-	handleErrors(err)
 	// Create vendor folder
 	err = os.Mkdir("vendor", 0755)
 	handleErrors(err)
 	err = os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
-	handleErrors(err)
-	// Create web folder
-	err = os.Mkdir("web", 0755)
-	handleErrors(err)
-	err = os.WriteFile("web/README.md", []byte("### `/web`"), 0644)
-	handleErrors(err)
-	// Create web/app folder
-	err = os.Mkdir("web/app", 0755)
-	handleErrors(err)
-	err = os.WriteFile("web/app/README.md", []byte("### `/web/app`"), 0644)
-	handleErrors(err)
-	// Create web/static folder
-	err = os.Mkdir("web/static", 0755)
-	handleErrors(err)
-	err = os.WriteFile("web/static/README.md", []byte("### `/web/static`"), 0644)
-	handleErrors(err)
-	// Create web/template folder
-	err = os.Mkdir("web/template", 0755)
-	handleErrors(err)
-	err = os.WriteFile("web/template/README.md", []byte("### `/web/template`"), 0644)
-	handleErrors(err)
-	// Create website folder
-	err = os.Mkdir("website", 0755)
-	handleErrors(err)
-	err = os.WriteFile("website/README.md", []byte("### `/website`"), 0644)
 	handleErrors(err)
 }
 
@@ -238,21 +119,6 @@ go 1.16`
 	// Create go.sum file
 	gosum := ""
 	err = os.WriteFile("go.sum", []byte(gosum), 0644)
-	handleErrors(err)
-	// Create Dockerfile file
-	dockerFile := `FROM golang:latest
-LABEL maintainer="John Doe <example@example.com>"
-WORKDIR /app
-COPY . .
-RUN go mod download
-RUN go build -o main .
-CMD ["./main"]`
-	err = os.WriteFile("Dockerfile", []byte(dockerFile), 0644)
-	handleErrors(err)
-	read, err = os.ReadFile("Dockerfile")
-	handleErrors(err)
-	newContents = strings.Replace(string(read), ("main"), (projectName), -1)
-	err = os.WriteFile("Dockerfile", []byte(newContents), 0)
 	handleErrors(err)
 	// Create .gitignore file
 	gitignore := `# Binaries for programs and plugins
@@ -286,57 +152,15 @@ This is a basic layout for Go application projects. It's not an official standar
 
 ## Go Directories
 
-### "/cmd"
-
-Main applications for this project.
-
-The directory name for each application should match the name of the executable you want to have (e.g., "/cmd/myapp").
-
-Don't put a lot of code in the application directory. If you think the code can be imported and used in other projects, then it should live in the "/pkg" directory. If the code is not reusable or if you don't want others to reuse it, put that code in the "/internal" directory. You'll be surprised what others will do, so be explicit about your intentions!
-
-It's common to have a small "main" function that imports and invokes the code from the "/internal" and "/pkg" directories and nothing else.
-
-See the ["/cmd"](cmd/README.md) directory for examples.
-
-### "/internal"
-
-Private application and library code. This is the code you don't want others importing in their applications or libraries. Note that this layout pattern is enforced by the Go compiler itself. See the Go 1.4 ["release notes"](https://golang.org/doc/go1.4#internalpackages) for more details. Note that you are not limited to the top level "internal" directory. You can have more than one "internal" directory at any level of your project tree.
-
-You can optionally add a bit of extra structure to your internal packages to separate your shared and non-shared internal code. It's not required (especially for smaller projects), but it's nice to have visual clues showing the intended package use. Your actual application code can go in the "/internal/app" directory (e.g., "/internal/app/myapp") and the code shared by those apps in the "/internal/pkg" directory (e.g., "/internal/pkg/myprivlib").
-
-### "/pkg"
-
-Library code that's ok to use by external applications (e.g., "/pkg/mypubliclib"). Other projects will import these libraries expecting them to work, so think twice before you put something here :-) Note that the "internal" directory is a better way to ensure your private packages are not importable because it's enforced by Go. The "/pkg" directory is still a good way to explicitly communicate that the code in that directory is safe for use by others. The ["I'll take pkg over internal"](https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/) blog post by Travis Jeffery provides a good overview of the "pkg" and "internal" directories and when it might make sense to use them.
-
-It's also a way to group Go code in one place when your root directory contains lots of non-Go components and directories making it easier to run various Go tools (as mentioned in these talks: ["Best Practices for Industrial Programming"](https://www.youtube.com/watch?v=PTE4VJIdHPg) from GopherCon EU 2018, ["GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps"](https://www.youtube.com/watch?v=oL6JBUk6tj0) and ["GoLab 2018 - Massimiliano Pippi - Project layout patterns in Go"](https://www.youtube.com/watch?v=3gQa1LWwuzk)).
-
-See the ["/pkg"](pkg/README.md) directory if you want to see which popular Go repos use this project layout pattern. This is a common layout pattern, but it's not universally accepted and some in the Go community don't recommend it.
-
-It's ok not to use it if your app project is really small and where an extra level of nesting doesn't add much value (unless you really want to :-)). Think about it when it's getting big enough and your root directory gets pretty busy (especially if you have a lot of non-Go app components).
-
-### "/vendor"
-
-Application dependencies (managed manually or by your favorite dependency management tool like the new built-in ["Go Modules"](https://github.com/golang/go/wiki/Modules) feature). The "go mod vendor" command will create the "/vendor" directory for you. Note that you might need to add the "-mod=vendor" flag to your "go build" command if you are not using Go 1.14 where it's on by default.
-
-Don't commit your application dependencies if you are building a library.
-
-Note that since ["1.13"](https://golang.org/doc/go1.13#modules) Go also enabled the module proxy feature (using ["https://proxy.golang.org"](https://proxy.golang.org) as their module proxy server by default). Read more about it ["here"](https://blog.golang.org/module-mirror-launch) to see if it fits all of your requirements and constraints. If it does, then you won't need the "vendor" directory at all.
-
-## Service Application Directories
-
 ### "/api"
 
 OpenAPI/Swagger specs, JSON schema files, protocol definition files.
 
 See the ["/api"](api/README.md) directory for examples.
 
-## Web Application Directories
+### "/assets"
 
-### "/web"
-
-Web application specific components: static web assets, server side templates and SPAs.
-
-## Common Application Directories
+Other assets to go along with your repository (images, logos, etc).
 
 ### "/configs"
 
@@ -344,9 +168,17 @@ Configuration file templates or default configs.
 
 Put your "confd" or "consul-template" template files here.
 
-### "/init"
+### "/docs"
 
-System init (systemd, upstart, sysv) and process manager/supervisor (runit, supervisord) configs.
+Design and user documents (in addition to your godoc generated documentation).
+
+See the ["/docs"](docs/README.md) directory for examples.
+
+### "/examples"
+
+Examples for your applications and/or public libraries.
+
+See the ["/examples"](examples/README.md) directory for examples.
 
 ### "/scripts"
 
@@ -356,69 +188,19 @@ These scripts keep the root level Makefile small and simple (e.g., ["https://git
 
 See the ["/scripts"](scripts/README.md) directory for examples.
 
-### "/build"
-
-Packaging and Continuous Integration.
-
-Put your cloud (AMI), container (Docker), OS (deb, rpm, pkg) package configurations and scripts in the "/build/package" directory.
-
-Put your CI (travis, circle, drone) configurations and scripts in the "/build/ci" directory. Note that some of the CI tools (e.g., Travis CI) are very picky about the location of their config files. Try putting the config files in the "/build/ci" directory linking them to the location where the CI tools expect them (when possible).
-
-### "/deployments"
-
-IaaS, PaaS, system and container orchestration deployment configurations and templates (docker-compose, kubernetes/helm, mesos, terraform, bosh). Note that in some repos (especially apps deployed with kubernetes) this directory is called "/deploy".
-
 ### "/test"
 
 Additional external test apps and test data. Feel free to structure the "/test" directory anyway you want. For bigger projects it makes sense to have a data subdirectory. For example, you can have "/test/data" or "/test/testdata" if you need Go to ignore what's in that directory. Note that Go will also ignore directories or files that begin with "." or "_", so you have more flexibility in terms of how you name your test data directory.
 
 See the ["/test"](test/README.md) directory for examples.
 
-## Other Directories
+### "/vendor"
 
-### "/docs"
+Application dependencies (managed manually or by your favorite dependency management tool like the new built-in ["Go Modules"](https://github.com/golang/go/wiki/Modules) feature). The "go mod vendor" command will create the "/vendor" directory for you. Note that you might need to add the "-mod=vendor" flag to your "go build" command if you are not using Go 1.14 where it's on by default.
 
-Design and user documents (in addition to your godoc generated documentation).
+Don't commit your application dependencies if you are building a library.
 
-See the ["/docs"](docs/README.md) directory for examples.
-
-### "/tools"
-
-Supporting tools for this project. Note that these tools can import code from the "/pkg" and "/internal" directories.
-
-See the ["/tools"](tools/README.md) directory for examples.
-
-### "/examples"
-
-Examples for your applications and/or public libraries.
-
-See the ["/examples"](examples/README.md) directory for examples.
-
-### "/third_party"
-
-External helper tools, forked code and other 3rd party utilities (e.g., Swagger UI).
-
-### "/githooks"
-
-Git hooks.
-
-### "/assets"
-
-Other assets to go along with your repository (images, logos, etc).
-
-### "/website"
-
-This is the place to put your project's website data if you are not using GitHub pages.
-
-See the ["/website"](website/README.md) directory for examples.
-
-## Directories You Shouldn't Have
-
-### "/src"
-
-Some Go projects do have a "src" folder, but it usually happens when the devs came from the Java world where it's a common pattern. If you can help yourself try not to adopt this Java pattern. You really don't want your Go code or Go projects to look like Java :-)
-
-Don't confuse the project level "/src" directory with the "/src" directory Go uses for its workspaces as described in ["How to Write Go Code"](https://golang.org/doc/code.html). The "$GOPATH" environment variable points to your (current) workspace (by default it points to "$HOME/go" on non-windows systems). This workspace includes the top level "/pkg", "/bin" and "/src" directories. Your actual project ends up being a sub-directory under "/src", so if you have the "/src" directory in your project the project path will look like this: "/some/path/to/workspace/src/your_project/src/your_code.go". Note that with Go 1.11 it's possible to have your project outside of your "GOPATH", but it still doesn't mean it's a good idea to use this layout pattern.`
+Note that since ["1.13"](https://golang.org/doc/go1.13#modules) Go also enabled the module proxy feature (using ["https://proxy.golang.org"](https://proxy.golang.org) as their module proxy server by default). Read more about it ["here"](https://blog.golang.org/module-mirror-launch) to see if it fits all of your requirements and constraints. If it does, then you won't need the "vendor" directory at all.`
 	err = os.WriteFile("README.md", []byte(readme), 0644)
 	handleErrors(err)
 	read, err = os.ReadFile("README.md")
@@ -449,6 +231,6 @@ func fileExists(filename string) bool {
 // Log errors
 func handleErrors(err error) {
 	if err != nil {
-		log.Print(err)
+		log.Println(err)
 	}
 }
