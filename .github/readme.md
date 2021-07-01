@@ -35,7 +35,7 @@
   </a>
 </p>
 
-There is no official go project specification framework or widely agreed standard other than `go.mod` and this tool is based on the golang-standard project.
+There is no official go project specification framework or widely agreed standard other than `go.mod`.
 
 ---
 ### Features
@@ -60,65 +60,22 @@ gocreate -name={PROJECT}
 │   └── README.md
 ├── assets
 │   └── README.md
-├── build
-│   ├── ci
-│   │   └── README.md
-│   ├── package
-│   │   └── README.md
-│   └── README.md
-├── cmd
-│   ├── README.md
-│   └── {PROJECT}
-│       └── README.md
 ├── configs
 │   └── README.md
-├── deployments
-│   └── README.md
-├── Dockerfile
 ├── docs
 │   └── README.md
 ├── examples
 │   └── README.md
-├── githooks
-│   └── README.md
 ├── go.mod
 ├── go.sum
-├── init
-│   └── README.md
-├── internal
-│   ├── app
-│   │   └── {PROJECT}
-│   │       └── README.md
-│   ├── pkg
-│   │   └── {PROJECT}
-│   │       └── README.md
-│   └── README.md
 ├── main.go
-├── pkg
-│   ├── README.md
-│   └── {PROJECT}
-│       └── README.md
 ├── README.md
 ├── scripts
 │   └── README.md
 ├── test
 │   └── README.md
-├── third_party
-│   └── README.md
-├── tools
-│   └── README.md
 ├── vendor
 │   └── README.md
-├── web
-│   ├── app
-│   │   └── README.md
-│   ├── README.md
-│   ├── static
-│   │   └── README.md
-│   └── template
-│       └── README.md
-└── website
-    └── README.md
 ```
 
 ---
