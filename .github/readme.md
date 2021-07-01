@@ -98,7 +98,6 @@ gocreate -name={PROJECT}
 
 ---
 ### Credits
-- [golang-standards](https://github.com/golang-standards/project-layout)
 - Open Source Community
 
 ---
