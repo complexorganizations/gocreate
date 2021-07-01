@@ -148,9 +148,7 @@ go 1.16`
 
 ## Overview
 
-This is a basic layout for Go application projects. It's not an official standard defined by the core Go dev team; however, it is a set of common historical and emerging project layout patterns in the Go ecosystem. Some of these patterns are more popular than others. It also has a number of small enhancements along with several supporting directories common to any large enough real world application, This project layout is intentionally generic and it doesn't try to impose a specific Go package structure.
-
-## Go Directories
+This is a basic layout for Go application projects. It's not an official standard defined by the core Go dev team.
 
 ### "/api"
 
@@ -166,7 +164,7 @@ Other assets to go along with your repository (images, logos, etc).
 
 Configuration file templates or default configs.
 
-Put your "confd" or "consul-template" template files here.
+Put your ".conf" files here.
 
 ### "/docs"
 
