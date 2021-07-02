@@ -49,11 +49,6 @@ func createProjectStructure() {
 	handleErrors(err)
 	err = os.Chdir(projectName)
 	handleErrors(err)
-	// Create api folder
-	err = os.Mkdir("api", 0755)
-	handleErrors(err)
-	err = os.WriteFile("api/README.md", []byte("### `/api`"), 0644)
-	handleErrors(err)
 	// Create assets folder
 	err = os.Mkdir("assets", 0755)
 	handleErrors(err)
@@ -121,12 +116,6 @@ go 1.17`
 ## Overview
 
 This is a basic layout for Go application projects. It's not an official standard defined by the core Go dev team.
-
-### "/api"
-
-OpenAPI/Swagger specs, JSON schema files, protocol definition files.
-
-See the ["/api"](api/README.md) directory for examples.
 
 ### "/assets"
 
