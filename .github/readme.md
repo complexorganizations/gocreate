@@ -56,11 +56,10 @@ gocreate -name={PROJECT}
 ### Structure
 ```
 {PROJECT}
+├── README.md
 ├── api
 │   └── README.md
 ├── assets
-│   └── README.md
-├── configs
 │   └── README.md
 ├── docs
 │   └── README.md
@@ -69,13 +68,12 @@ gocreate -name={PROJECT}
 ├── go.mod
 ├── go.sum
 ├── main.go
-├── README.md
 ├── scripts
 │   └── README.md
 ├── test
 │   └── README.md
-├── vendor
-│   └── README.md
+└── vendor
+    └── README.md
 ```
 
 ---
