@@ -154,7 +154,7 @@ The "go mod vendor" command will create the "/vendor" directory for you, which w
 // Check if a folder exists
 func folderExists(foldername string) bool {
 	info, err := os.Stat(foldername)
-	if os.IsNotExist(err) {
+	if err != nil {
 		return false
 	}
 	return info.IsDir()
@@ -163,7 +163,7 @@ func folderExists(foldername string) bool {
 // Check if a file exists
 func fileExists(filename string) bool {
 	info, err := os.Stat(filename)
-	if os.IsNotExist(err) {
+	if err != nil {
 		return false
 	}
 	return !info.IsDir()
