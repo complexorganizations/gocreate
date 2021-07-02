@@ -59,11 +59,6 @@ func createProjectStructure() {
 	handleErrors(err)
 	err = os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
 	handleErrors(err)
-	// Create configs folder
-	err = os.Mkdir("configs", 0755)
-	handleErrors(err)
-	err = os.WriteFile("configs/README.md", []byte("### `/config`"), 0644)
-	handleErrors(err)
 	// Create docs folder
 	err = os.Mkdir("docs", 0755)
 	handleErrors(err)
@@ -108,7 +103,7 @@ func main() {
 	// Create go.mod file
 	gomod := `module main
 
-go 1.16`
+go 1.17`
 	err = os.WriteFile("go.mod", []byte(gomod), 0644)
 	handleErrors(err)
 	read, err := os.ReadFile("go.mod")
@@ -119,29 +114,6 @@ go 1.16`
 	// Create go.sum file
 	gosum := ""
 	err = os.WriteFile("go.sum", []byte(gosum), 0644)
-	handleErrors(err)
-	// Create .gitignore file
-	gitignore := `# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, built with "go test -c"
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-
-# Dependency directories (remove the comment below to include it)
-# vendor/`
-	err = os.WriteFile(".gitignore", []byte(gitignore), 0644)
-	handleErrors(err)
-	read, err = os.ReadFile(".gitignore")
-	handleErrors(err)
-	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
-	err = os.WriteFile(".gitignore", []byte(newContents), 0)
 	handleErrors(err)
 	// Create README.md file
 	readme := `# Standard Go Project Layout
@@ -159,12 +131,6 @@ See the ["/api"](api/README.md) directory for examples.
 ### "/assets"
 
 Other assets to go along with your repository (images, logos, etc).
-
-### "/configs"
-
-Configuration file templates or default configs.
-
-Put your ".conf" files here.
 
 ### "/docs"
 
