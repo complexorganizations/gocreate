@@ -111,54 +111,42 @@ go 1.17`
 	err = os.WriteFile("go.sum", []byte(gosum), 0644)
 	handleErrors(err)
 	// Create README.md file
-	readme := `# Standard Go Project Layout
+	readme := `# [Project_Name]
 
 ## Overview
 
-This is a basic layout for Go application projects. It's not an official standard defined by the core Go dev team.
+This is a basic Go application project layout. It isn't an official standard set by the Go development team.
 
 ### "/assets"
 
-Other assets to go along with your repository (images, logos, etc).
+Any data or other component of the environment that enables information-related activities is referred to as an asset.
 
 ### "/docs"
 
-Design and user documents (in addition to your godoc generated documentation).
-
-See the ["/docs"](docs/README.md) directory for examples.
+Here you'll find design, use, and other project documents.
 
 ### "/examples"
 
-Examples for your applications and/or public libraries.
-
-See the ["/examples"](examples/README.md) directory for examples.
+Here you'll find examples of your project and library.
 
 ### "/scripts"
 
-Scripts to perform various build, install, analysis, etc operations.
-
-These scripts keep the root level Makefile small and simple (e.g., ["https://github.com/hashicorp/terraform/blob/main/Makefile"](https://github.com/hashicorp/terraform/blob/main/Makefile)).
-
-See the ["/scripts"](scripts/README.md) directory for examples.
+Scripts for different activities such as building, installing, analyzing, and so on.
 
 ### "/test"
 
-Additional external test apps and test data. Feel free to structure the "/test" directory anyway you want. For bigger projects it makes sense to have a data subdirectory. For example, you can have "/test/data" or "/test/testdata" if you need Go to ignore what's in that directory. Note that Go will also ignore directories or files that begin with "." or "_", so you have more flexibility in terms of how you name your test data directory.
-
-See the ["/test"](test/README.md) directory for examples.
+This is where your application's data and testing will be stored.
 
 ### "/vendor"
 
-Application dependencies (managed manually or by your favorite dependency management tool like the new built-in ["Go Modules"](https://github.com/golang/go/wiki/Modules) feature). The "go mod vendor" command will create the "/vendor" directory for you. Note that you might need to add the "-mod=vendor" flag to your "go build" command if you are not using Go 1.14 where it's on by default.
-
-Don't commit your application dependencies if you are building a library.
-
-Note that since ["1.13"](https://golang.org/doc/go1.13#modules) Go also enabled the module proxy feature (using ["https://proxy.golang.org"](https://proxy.golang.org) as their module proxy server by default). Read more about it ["here"](https://blog.golang.org/module-mirror-launch) to see if it fits all of your requirements and constraints. If it does, then you won't need the "vendor" directory at all.`
+The "go mod vendor" command will create the "/vendor" directory for you, which will include all of your application dependencies.`
 	err = os.WriteFile("README.md", []byte(readme), 0644)
 	handleErrors(err)
 	read, err = os.ReadFile("README.md")
 	handleErrors(err)
-	newContents = strings.Replace(string(read), (`"`), ("`"), -1)
+	changeString := strings.Replace(string(read), (`"`), ("`"), -1)
+	newContents = strings.Replace(string(changeString), (`[Project_Name]`), (projectName), -1)
+	//projectName
 	err = os.WriteFile("README.md", []byte(newContents), 0)
 	handleErrors(err)
 }
