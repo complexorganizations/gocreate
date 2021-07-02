@@ -26,13 +26,11 @@ func init() {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Invalid stuff
-	if strings.Contains(projectName, "<") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") {
+	if strings.Contains(projectName, "<") || strings.HasPrefix(projectName, ".") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") || projectName == "." {
 		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
 	}
 	// Check if a repository already exists
-	if folderExists(projectName) {
-		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
-	} else if fileExists(projectName) {
+	if folderExists(projectName) || fileExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
 }
