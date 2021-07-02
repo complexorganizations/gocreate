@@ -57,8 +57,6 @@ gocreate -name={PROJECT}
 ```
 {PROJECT}
 ├── README.md
-├── api
-│   └── README.md
 ├── assets
 │   └── README.md
 ├── docs
