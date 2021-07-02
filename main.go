@@ -97,11 +97,7 @@ func main() {
 	gomod := `module main
 
 go 1.17`
-	err = os.WriteFile("go.mod", []byte(gomod), 0644)
-	handleErrors(err)
-	read, err := os.ReadFile("go.mod")
-	handleErrors(err)
-	newContents := strings.Replace(string(read), ("main"), (projectName), -1)
+	newContents := strings.Replace(gomod, ("main"), (projectName), -1)
 	err = os.WriteFile("go.mod", []byte(newContents), 0)
 	handleErrors(err)
 	// Create go.sum file
@@ -138,13 +134,11 @@ This is where your application's data and testing will be stored.
 ### "/vendor"
 
 The "go mod vendor" command will create the "/vendor" directory for you, which will include all of your application dependencies.`
-	err = os.WriteFile("README.md", []byte(readme), 0644)
-	handleErrors(err)
-	read, err = os.ReadFile("README.md")
-	handleErrors(err)
-	changeString := strings.Replace(string(read), (`"`), ("`"), -1)
-	newContents = strings.Replace(string(changeString), (`[Project_Name]`), (projectName), -1)
-	//projectName
+	// Change from " to `
+	changeString := strings.Replace(readme, (`"`), ("`"), -1)
+	// Change the project name
+	newContents = strings.Replace(changeString, (`[Project_Name]`), (projectName), -1)
+	// write the file
 	err = os.WriteFile("README.md", []byte(newContents), 0)
 	handleErrors(err)
 }
