@@ -101,4 +101,4 @@ gocreate -name={PROJECT}
 
 Copyright © 2021 [ComplexOrganizations](https://github.com/complexorganizations)
 
-This project is unlicensed.
+The Apache 2.0 license governs the distribution of this project.
