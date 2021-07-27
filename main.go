@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -13,7 +14,7 @@ var (
 )
 
 func init() {
-	// Make sure the user is providing a project name
+	// Ascertain that the user has provided a project name.
 	if len(os.Args) > 1 {
 		tempProjectName := flag.String("name", "/user/example/folder", "The name of the go project.")
 		flag.Parse()
@@ -22,18 +23,20 @@ func init() {
 		// Close the application if no project name is provided
 		log.Fatal("Error: The project name was not been given.")
 	}
-	// If no name is passed or the name is default, then exit
+	// If no name is specified or if the name is the default, exit.
 	if len(projectName) < 1 || projectName == "/user/example/folder" {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
-	// Invalid characters for a proper project name
+	// Make sure the project name doesn't contain any characters that aren't allowed.
 	if strings.Contains(projectName, "<") || strings.HasPrefix(projectName, ".") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") || projectName == "." {
 		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
 	}
-	// Check if a repository already exists
+	// Check to see if the folder or file you're looking for already exists.
 	if folderExists(projectName) || fileExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
+	// Make sure we have git installed in the system.
+	commandExists("git")
 }
 
 func main() {
@@ -76,10 +79,10 @@ func main() {
 }`
 	os.WriteFile("main.go", []byte(main), 0644)
 	// Create go.mod file
-	gomod := `module main
+	gomod := `module [Project_Name]
 
 go 1.17`
-	newContents := strings.Replace(gomod, ("main"), (projectName), -1)
+	newContents := strings.Replace(gomod, ("[Project_Name]"), (projectName), -1)
 	os.WriteFile("go.mod", []byte(newContents), 0)
 	// Create go.sum file
 	os.WriteFile("go.sum", []byte(""), 0644)
@@ -119,6 +122,24 @@ The "go mod vendor" command will create the "/vendor" directory for you, which w
 	newContents = strings.Replace(changeString, (`[Project_Name]`), (projectName), -1)
 	// write the file
 	os.WriteFile("README.md", []byte(newContents), 0)
+	// Git stuff
+	gitignore := `# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with go test -c
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/`
+	os.WriteFile(".gitignore", []byte(gitignore), 0644)
+	exec.Command("git", "init").Run()
 }
 
 // Check if a folder exists
@@ -137,4 +158,11 @@ func fileExists(filename string) bool {
 		return false
 	}
 	return !info.IsDir()
+}
+
+func commandExists(cmd string) {
+	cmd, err := exec.LookPath(cmd)
+	if err != nil {
+		log.Fatalf("Error: The application %s was not found in the system.\n", cmd)
+	}
 }
