@@ -78,15 +78,15 @@ func main() {
 	fmt.Println("Hello, World!")
 }`
 	os.WriteFile("main.go", []byte(main), 0644)
-	// Create go.mod file
+	// Let's make a go.mod file and name it after the project.
 	gomod := `module [Project_Name]
 
 go 1.17`
 	newContents := strings.Replace(gomod, ("[Project_Name]"), (projectName), -1)
 	os.WriteFile("go.mod", []byte(newContents), 0)
-	// Create go.sum file
+	// Create the go.sum file, but keep it blank because we don't have any dependencies.
 	os.WriteFile("go.sum", []byte(""), 0644)
-	// Create README.md file
+	// The README.md file's contents
 	readme := `# [Project_Name]
 
 ## Overview
@@ -116,13 +116,13 @@ This is where your application's data and testing will be stored.
 ### "/vendor"
 
 The "go mod vendor" command will create the "/vendor" directory for you, which will include all of your application dependencies.`
-	// Change from " to `
 	changeString := strings.Replace(readme, (`"`), ("`"), -1)
-	// Change the project name
+	// Let's change the string to the name of the project.
 	newContents = strings.Replace(changeString, (`[Project_Name]`), (projectName), -1)
-	// write the file
+	// Let's create a readme file for the entire repository.
 	os.WriteFile("README.md", []byte(newContents), 0)
-	// Git stuff
+	// Init the repo and add the gitignore file.
+	exec.Command("git", "init").Run()
 	gitignore := `# Binaries for programs and plugins
 *.exe
 *.exe~
@@ -139,10 +139,9 @@ The "go mod vendor" command will create the "/vendor" directory for you, which w
 # Dependency directories (remove the comment below to include it)
 # vendor/`
 	os.WriteFile(".gitignore", []byte(gitignore), 0644)
-	exec.Command("git", "init").Run()
 }
 
-// Check if a folder exists
+// Check to see if a folder already exists.
 func folderExists(foldername string) bool {
 	info, err := os.Stat(foldername)
 	if err != nil {
@@ -151,7 +150,7 @@ func folderExists(foldername string) bool {
 	return info.IsDir()
 }
 
-// Check if a file exists
+// Check to see whether a file already exists.
 func fileExists(filename string) bool {
 	info, err := os.Stat(filename)
 	if err != nil {
@@ -160,6 +159,7 @@ func fileExists(filename string) bool {
 	return !info.IsDir()
 }
 
+// Check to see if the program has been installed and added to the path.
 func commandExists(cmd string) {
 	cmd, err := exec.LookPath(cmd)
 	if err != nil {
