@@ -13,19 +13,20 @@ var (
 )
 
 func init() {
+	// Make sure the user is providing a project name
 	if len(os.Args) > 1 {
-		// Supported Flags
 		tempProjectName := flag.String("name", "/user/example/folder", "The name of the go project.")
 		flag.Parse()
 		projectName = *tempProjectName
 	} else {
+		// Close the application if no project name is provided
 		log.Fatal("Error: The project name was not been given.")
 	}
-	// Project name empty
+	// If no name is passed or the name is default, then exit
 	if len(projectName) < 1 || projectName == "/user/example/folder" {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
-	// Invalid stuff
+	// Invalid characters for a proper project name
 	if strings.Contains(projectName, "<") || strings.HasPrefix(projectName, ".") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") || projectName == "." {
 		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
 	}
@@ -37,73 +38,51 @@ func init() {
 
 func main() {
 	createProjectStructure()
-	createProjectFiles()
 }
 
 // Create Project Structure
 func createProjectStructure() {
 	// Create project folder
 	err = os.Mkdir(projectName, 0755)
-	handleErrors(err)
-	err = os.Chdir(projectName)
-	handleErrors(err)
+	if err != nil {
+		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
+	}
+	os.Chdir(projectName)
 	// Create assets folder
-	err = os.Mkdir("assets", 0755)
-	handleErrors(err)
-	err = os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
-	handleErrors(err)
+	os.Mkdir("assets", 0755)
+	os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
 	// Create docs folder
-	err = os.Mkdir("docs", 0755)
-	handleErrors(err)
-	err = os.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
-	handleErrors(err)
+	os.Mkdir("docs", 0755)
+	os.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
 	// Create examples folder
-	err = os.Mkdir("examples", 0755)
-	handleErrors(err)
-	err = os.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
-	handleErrors(err)
+	os.Mkdir("examples", 0755)
+	os.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
 	// Create scripts folder
-	err = os.Mkdir("scripts", 0755)
-	handleErrors(err)
-	err = os.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
-	handleErrors(err)
+	os.Mkdir("scripts", 0755)
+	os.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
 	// Create test folder
-	err = os.Mkdir("test", 0755)
-	handleErrors(err)
-	err = os.WriteFile("test/README.md", []byte("### `/test`"), 0644)
-	handleErrors(err)
+	os.Mkdir("test", 0755)
+	os.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	// Create vendor folder
-	err = os.Mkdir("vendor", 0755)
-	handleErrors(err)
-	err = os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
-	handleErrors(err)
-}
-
-// Create Project Files
-func createProjectFiles() {
+	os.Mkdir("vendor", 0755)
+	os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
 	// Create main.go file
 	main := `package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	fmt.Println("Hello, World!")
 }`
-	err = os.WriteFile("main.go", []byte(main), 0644)
-	handleErrors(err)
+	os.WriteFile("main.go", []byte(main), 0644)
 	// Create go.mod file
 	gomod := `module main
 
 go 1.17`
 	newContents := strings.Replace(gomod, ("main"), (projectName), -1)
-	err = os.WriteFile("go.mod", []byte(newContents), 0)
-	handleErrors(err)
+	os.WriteFile("go.mod", []byte(newContents), 0)
 	// Create go.sum file
-	gosum := ""
-	err = os.WriteFile("go.sum", []byte(gosum), 0644)
-	handleErrors(err)
+	os.WriteFile("go.sum", []byte(""), 0644)
 	// Create README.md file
 	readme := `# [Project_Name]
 
@@ -139,8 +118,7 @@ The "go mod vendor" command will create the "/vendor" directory for you, which w
 	// Change the project name
 	newContents = strings.Replace(changeString, (`[Project_Name]`), (projectName), -1)
 	// write the file
-	err = os.WriteFile("README.md", []byte(newContents), 0)
-	handleErrors(err)
+	os.WriteFile("README.md", []byte(newContents), 0)
 }
 
 // Check if a folder exists
@@ -159,11 +137,4 @@ func fileExists(filename string) bool {
 		return false
 	}
 	return !info.IsDir()
-}
-
-// Log errors
-func handleErrors(err error) {
-	if err != nil {
-		log.Println(err)
-	}
 }
