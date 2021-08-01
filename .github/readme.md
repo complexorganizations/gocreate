@@ -49,7 +49,7 @@ go get -v -u github.com/complexorganizations/gocreate
 ```
 Create a project applications using `gocreate`
 ```
-gocreate -name={PROJECT}
+gocreate {PROJECT}
 ```
 
 ---
