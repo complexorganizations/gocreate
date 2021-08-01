@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"log"
 	"os"
 	"os/exec"
@@ -15,13 +14,10 @@ var (
 
 func init() {
 	// Ascertain that the user has provided a project name.
-	if len(os.Args) > 1 {
-		tempProjectName := flag.String("name", "/user/example/folder", "The name of the go project.")
-		flag.Parse()
-		projectName = *tempProjectName
-	} else {
-		// Close the application if no project name is provided
+	if len(os.Args) < 1 {
 		log.Fatal("Error: The project name was not been given.")
+	} else {
+		projectName = os.Args[1]
 	}
 	// If no name is specified or if the name is the default, exit.
 	if len(projectName) < 1 || projectName == "/user/example/folder" {
