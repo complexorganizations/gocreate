@@ -118,7 +118,10 @@ The "go mod vendor" command will create the "/vendor" directory for you, which w
 	// Let's create a readme file for the entire repository.
 	os.WriteFile("README.md", []byte(newContents), 0)
 	// Init the repo and add the gitignore file.
-	exec.Command("git", "init").Run()
+	err = exec.Command("git", "init").Run()
+	if err != nil {
+		log.Println(err)
+	}
 	gitignore := `# Binaries for programs and plugins
 *.exe
 *.exe~
