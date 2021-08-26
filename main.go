@@ -50,18 +50,18 @@ func createProjectStructure() {
 	// Create assets folder
 	os.Mkdir("assets", 0755)
 	os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
-	// Create docs folder
-	os.Mkdir("docs", 0755)
-	os.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
-	// Create examples folder
-	os.Mkdir("examples", 0755)
-	os.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
+	// Create build folder
+	os.Mkdir("build", 0755)
+	os.WriteFile("build/README.md", []byte("### `/build`"), 0644)
+	// Create pkg folder
+	os.Mkdir("pkg", 0755)
+	os.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
+	// Create pkg folder
+	os.Mkdir("internal", 0755)
+	os.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
 	// Create scripts folder
 	os.Mkdir("scripts", 0755)
 	os.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
-	// Create test folder
-	os.Mkdir("test", 0755)
-	os.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	// Create vendor folder
 	os.Mkdir("vendor", 0755)
 	os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
