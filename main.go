@@ -50,18 +50,21 @@ func createProjectStructure() {
 	// Create assets folder
 	os.Mkdir("assets", 0755)
 	os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
-	// Create docs folder
-	os.Mkdir("docs", 0755)
-	os.WriteFile("docs/README.md", []byte("### `/docs`"), 0644)
-	// Create examples folder
-	os.Mkdir("examples", 0755)
-	os.WriteFile("examples/README.md", []byte("### `/examples`"), 0644)
+	// Create assets folder
+	os.Mkdir("cmd", 0755)
+	os.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0644)
+	// Create build folder
+	os.Mkdir("build", 0755)
+	os.WriteFile("build/README.md", []byte("### `/build`"), 0644)
+	// Create pkg folder
+	os.Mkdir("pkg", 0755)
+	os.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
+	// Create internal folder
+	os.Mkdir("internal", 0755)
+	os.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
 	// Create scripts folder
 	os.Mkdir("scripts", 0755)
 	os.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
-	// Create test folder
-	os.Mkdir("test", 0755)
-	os.WriteFile("test/README.md", []byte("### `/test`"), 0644)
 	// Create vendor folder
 	os.Mkdir("vendor", 0755)
 	os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
@@ -83,38 +86,9 @@ go 1.17`
 	// Create the go.sum file, but keep it blank because we don't have any dependencies.
 	os.WriteFile("go.sum", []byte(""), 0644)
 	// The README.md file's contents
-	readme := `# [Project_Name]
-
-## Overview
-
-This is a basic Go application project layout. It isn't an official standard set by the Go development team.
-
-### "/assets"
-
-Any data or other component of the environment that enables information-related activities is referred to as an asset.
-
-### "/docs"
-
-Here you'll find design, use, and other project documents.
-
-### "/examples"
-
-Here you'll find examples of your project and library.
-
-### "/scripts"
-
-Scripts for different activities such as building, installing, analyzing, and so on.
-
-### "/test"
-
-This is where your application's data and testing will be stored.
-
-### "/vendor"
-
-The "go mod vendor" command will create the "/vendor" directory for you, which will include all of your application dependencies.`
-	changeString := strings.Replace(readme, (`"`), ("`"), -1)
+	readme := `# [Project_Name]`
 	// Let's change the string to the name of the project.
-	newContents = strings.Replace(changeString, (`[Project_Name]`), (projectName), -1)
+	newContents = strings.Replace(readme, (`[Project_Name]`), (projectName), -1)
 	// Let's create a readme file for the entire repository.
 	os.WriteFile("README.md", []byte(newContents), 0)
 	// Init the repo and add the gitignore file.
