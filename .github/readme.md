@@ -59,19 +59,21 @@ gocreate {PROJECT}
 ├── README.md
 ├── assets
 │   └── README.md
-├── docs
+├── build
 │   └── README.md
-├── examples
+├── cmd
 │   └── README.md
 ├── go.mod
 ├── go.sum
+├── internal
+│   └── README.md
 ├── main.go
+├── pkg
+│   └── README.md
 ├── scripts
+|   └── README.md
+├──  vendor
 │   └── README.md
-├── test
-│   └── README.md
-└── vendor
-    └── README.md
 ```
 
 ---
