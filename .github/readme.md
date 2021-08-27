@@ -56,7 +56,6 @@ gocreate {PROJECT}
 ### Structure
 ```
 {PROJECT}
-├── README.md
 ├── assets
 │   └── README.md
 ├── build
@@ -70,10 +69,11 @@ gocreate {PROJECT}
 ├── main.go
 ├── pkg
 │   └── README.md
+├── README.md
 ├── scripts
-|   └── README.md
-├──  vendor
 │   └── README.md
+└── vendor
+    └── README.md
 ```
 
 ---

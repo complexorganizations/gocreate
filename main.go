@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"os"
-	"os/exec"
 	"strings"
 )
 
@@ -31,8 +30,6 @@ func init() {
 	if folderExists(projectName) || fileExists(projectName) {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
-	// Make sure we have git installed in the system.
-	commandExists("git")
 }
 
 func main() {
@@ -91,27 +88,6 @@ go 1.17`
 	newContents = strings.Replace(readme, (`[Project_Name]`), (projectName), -1)
 	// Let's create a readme file for the entire repository.
 	os.WriteFile("README.md", []byte(newContents), 0)
-	// Init the repo and add the gitignore file.
-	err = exec.Command("git", "init").Run()
-	if err != nil {
-		log.Println(err)
-	}
-	gitignore := `# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, built with go test -c
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-
-# Dependency directories (remove the comment below to include it)
-# vendor/`
-	os.WriteFile(".gitignore", []byte(gitignore), 0644)
 }
 
 // Check to see if a folder already exists.
@@ -130,12 +106,4 @@ func fileExists(filename string) bool {
 		return false
 	}
 	return !info.IsDir()
-}
-
-// Check to see if the program has been installed and added to the path.
-func commandExists(cmd string) {
-	cmd, err := exec.LookPath(cmd)
-	if err != nil {
-		log.Fatalf("Error: The application %s was not found in the system.\n", cmd)
-	}
 }
