@@ -19,7 +19,7 @@ func init() {
 		projectName = os.Args[1]
 	}
 	// If no name is specified or if the name is the default, exit.
-	if len(projectName) < 1 || projectName == "/user/example/folder" {
+	if len(projectName) < 1 {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Make sure the project name doesn't contain any characters that aren't allowed.
