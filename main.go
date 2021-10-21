@@ -45,26 +45,26 @@ func createProjectStructure() {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
 	// Create assets folder
-	os.Mkdir(fmt.Sprint(projectName+"/assets"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/assets/README.md"), []byte("### `/assets`"), 0644)
+	createFolder(projectName + "/assets")
+	writeToFile(fmt.Sprint(projectName+"/assets/README.md"), "### `/assets`")
 	// Create assets folder
-	os.Mkdir(fmt.Sprint(projectName+"/cmd"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/cmd/README.md"), []byte("### `/cmd`"), 0644)
+	createFolder(projectName + "/cmd")
+	writeToFile(fmt.Sprint(projectName+"/cmd/README.md"), "### `/cmd`")
 	// Create build folder
-	os.Mkdir(fmt.Sprint(projectName+"/build"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/build/README.md"), []byte("### `/build`"), 0644)
+	createFolder(projectName + "/build")
+	writeToFile(fmt.Sprint(projectName+"/build/README.md"), "### `/build`")
 	// Create pkg folder
-	os.Mkdir(fmt.Sprint(projectName+"/pkg"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/pkg/README.md"), []byte("### `/pkg`"), 0644)
+	createFolder(projectName + "/pkg")
+	writeToFile(fmt.Sprint(projectName+"/pkg/README.md"), "### `/pkg`")
 	// Create internal folder
-	os.Mkdir(fmt.Sprint(projectName+"/internal"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/internal/README.md"), []byte("### `/internal`"), 0644)
+	createFolder(projectName + "/internal")
+	writeToFile(fmt.Sprint(projectName+"/internal/README.md"), "### `/internal`")
 	// Create scripts folder
-	os.Mkdir(fmt.Sprint(projectName+"/scripts"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/scripts/README.md"), []byte("### `/scripts`"), 0644)
+	createFolder(projectName + "/scripts")
+	writeToFile(fmt.Sprint(projectName+"/scripts/README.md"), "### `/scripts`")
 	// Create vendor folder
-	os.Mkdir(fmt.Sprint(projectName+"/vendor"), 0755)
-	os.WriteFile(fmt.Sprint(projectName+"/vendor/README.md"), []byte("### `/vendor`"), 0644)
+	createFolder(projectName + "/vendor")
+	writeToFile(fmt.Sprint(projectName+"/vendor/README.md"), "### `/vendor`")
 	// Create main.go file
 	main := `package main
 
@@ -73,21 +73,21 @@ import "fmt"
 func main() {
 	fmt.Println("Hello, World!")
 }`
-	os.WriteFile(fmt.Sprint(projectName+"/main.go"), []byte(main), 0644)
+	writeToFile(fmt.Sprint(projectName+"/main.go"), main)
 	// Let's make a go.mod file and name it after the project.
 	gomod := `module [Project_Name]
 
 go 1.17`
 	newContents := strings.Replace(gomod, ("[Project_Name]"), (projectName), -1)
-	os.WriteFile(fmt.Sprint(projectName+"/go.mod"), []byte(newContents), 0)
+	writeToFile(fmt.Sprint(projectName+"/go.mod"), newContents)
 	// Create the go.sum file, but keep it blank because we don't have any dependencies.
-	os.WriteFile(fmt.Sprint(projectName+"/go.sum"), []byte(""), 0644)
+	writeToFile(fmt.Sprint(projectName+"/go.sum"), "")
 	// The README.md file's contents
 	readme := `# [Project_Name]`
 	// Let's change the string to the name of the project.
 	newContents = strings.Replace(readme, (`[Project_Name]`), (projectName), -1)
 	// Let's create a readme file for the entire repository.
-	os.WriteFile(fmt.Sprint(projectName+"/README.md"), []byte(newContents), 0)
+	writeToFile(fmt.Sprint(projectName+"/README.md"), newContents)
 }
 
 // Check to see if a folder already exists.
@@ -106,4 +106,28 @@ func fileExists(filename string) bool {
 		return false
 	}
 	return !info.IsDir()
+}
+
+// Append and write to file
+func writeToFile(pathInSystem string, content string) {
+	filePath, err := os.OpenFile(pathInSystem, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Println(err)
+	}
+	_, err = filePath.WriteString(content + "\n")
+	if err != nil {
+		log.Println(err)
+	}
+	err = filePath.Close()
+	if err != nil {
+		log.Println(err)
+	}
+}
+
+// Create a folder in the system.
+func createFolder(foldername string) {
+	err = os.Mkdir(foldername, 0755)
+	if err != nil {
+		log.Printf("Error: Failed to create %s directory.\n", foldername)
+	}
 }
