@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -43,28 +44,27 @@ func createProjectStructure() {
 	if err != nil {
 		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
 	}
-	os.Chdir(projectName)
 	// Create assets folder
-	os.Mkdir("assets", 0755)
-	os.WriteFile("assets/README.md", []byte("### `/assets`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/assets"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/assets/README.md"), []byte("### `/assets`"), 0644)
 	// Create assets folder
-	os.Mkdir("cmd", 0755)
-	os.WriteFile("cmd/README.md", []byte("### `/cmd`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/cmd"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/cmd/README.md"), []byte("### `/cmd`"), 0644)
 	// Create build folder
-	os.Mkdir("build", 0755)
-	os.WriteFile("build/README.md", []byte("### `/build`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/build"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/build/README.md"), []byte("### `/build`"), 0644)
 	// Create pkg folder
-	os.Mkdir("pkg", 0755)
-	os.WriteFile("pkg/README.md", []byte("### `/pkg`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/pkg"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/pkg/README.md"), []byte("### `/pkg`"), 0644)
 	// Create internal folder
-	os.Mkdir("internal", 0755)
-	os.WriteFile("internal/README.md", []byte("### `/internal`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/internal"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/internal/README.md"), []byte("### `/internal`"), 0644)
 	// Create scripts folder
-	os.Mkdir("scripts", 0755)
-	os.WriteFile("scripts/README.md", []byte("### `/scripts`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/scripts"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/scripts/README.md"), []byte("### `/scripts`"), 0644)
 	// Create vendor folder
-	os.Mkdir("vendor", 0755)
-	os.WriteFile("vendor/README.md", []byte("### `/vendor`"), 0644)
+	os.Mkdir(fmt.Sprint(projectName+"/vendor"), 0755)
+	os.WriteFile(fmt.Sprint(projectName+"/vendor/README.md"), []byte("### `/vendor`"), 0644)
 	// Create main.go file
 	main := `package main
 
@@ -73,21 +73,21 @@ import "fmt"
 func main() {
 	fmt.Println("Hello, World!")
 }`
-	os.WriteFile("main.go", []byte(main), 0644)
+	os.WriteFile(fmt.Sprint(projectName+"/main.go"), []byte(main), 0644)
 	// Let's make a go.mod file and name it after the project.
 	gomod := `module [Project_Name]
 
 go 1.17`
 	newContents := strings.Replace(gomod, ("[Project_Name]"), (projectName), -1)
-	os.WriteFile("go.mod", []byte(newContents), 0)
+	os.WriteFile(fmt.Sprint(projectName+"/go.mod"), []byte(newContents), 0)
 	// Create the go.sum file, but keep it blank because we don't have any dependencies.
-	os.WriteFile("go.sum", []byte(""), 0644)
+	os.WriteFile(fmt.Sprint(projectName+"/go.sum"), []byte(""), 0644)
 	// The README.md file's contents
 	readme := `# [Project_Name]`
 	// Let's change the string to the name of the project.
 	newContents = strings.Replace(readme, (`[Project_Name]`), (projectName), -1)
 	// Let's create a readme file for the entire repository.
-	os.WriteFile("README.md", []byte(newContents), 0)
+	os.WriteFile(fmt.Sprint(projectName+"/README.md"), []byte(newContents), 0)
 }
 
 // Check to see if a folder already exists.
