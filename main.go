@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -46,25 +45,25 @@ func createProjectStructure() {
 	}
 	// Create assets folder
 	createFolder(projectName + "/assets")
-	writeToFile(fmt.Sprint(projectName+"/assets/README.md"), "### `/assets`")
+	writeToFile(projectName+"/assets/README.md", "### `/assets`")
 	// Create assets folder
 	createFolder(projectName + "/cmd")
-	writeToFile(fmt.Sprint(projectName+"/cmd/README.md"), "### `/cmd`")
+	writeToFile(projectName+"/cmd/README.md", "### `/cmd`")
 	// Create build folder
 	createFolder(projectName + "/build")
-	writeToFile(fmt.Sprint(projectName+"/build/README.md"), "### `/build`")
+	writeToFile(projectName+"/build/README.md", "### `/build`")
 	// Create pkg folder
 	createFolder(projectName + "/pkg")
-	writeToFile(fmt.Sprint(projectName+"/pkg/README.md"), "### `/pkg`")
+	writeToFile(projectName+"/pkg/README.md", "### `/pkg`")
 	// Create internal folder
 	createFolder(projectName + "/internal")
-	writeToFile(fmt.Sprint(projectName+"/internal/README.md"), "### `/internal`")
+	writeToFile(projectName+"/internal/README.md", "### `/internal`")
 	// Create scripts folder
 	createFolder(projectName + "/scripts")
-	writeToFile(fmt.Sprint(projectName+"/scripts/README.md"), "### `/scripts`")
+	writeToFile(projectName+"/scripts/README.md", "### `/scripts`")
 	// Create vendor folder
 	createFolder(projectName + "/vendor")
-	writeToFile(fmt.Sprint(projectName+"/vendor/README.md"), "### `/vendor`")
+	writeToFile(projectName+"/vendor/README.md", "### `/vendor`")
 	// Create main.go file
 	main := `package main
 
@@ -73,21 +72,21 @@ import "fmt"
 func main() {
 	fmt.Println("Hello, World!")
 }`
-	writeToFile(fmt.Sprint(projectName+"/main.go"), main)
+	writeToFile(projectName+"/main.go", main)
 	// Let's make a go.mod file and name it after the project.
 	gomod := `module [Project_Name]
 
 go 1.17`
 	newContents := strings.Replace(gomod, ("[Project_Name]"), (projectName), -1)
-	writeToFile(fmt.Sprint(projectName+"/go.mod"), newContents)
+	writeToFile(projectName+"/go.mod", newContents)
 	// Create the go.sum file, but keep it blank because we don't have any dependencies.
-	writeToFile(fmt.Sprint(projectName+"/go.sum"), "")
+	writeToFile(projectName+"/go.sum", "")
 	// The README.md file's contents
 	readme := `# [Project_Name]`
 	// Let's change the string to the name of the project.
 	newContents = strings.Replace(readme, (`[Project_Name]`), (projectName), -1)
 	// Let's create a readme file for the entire repository.
-	writeToFile(fmt.Sprint(projectName+"/README.md"), newContents)
+	writeToFile(projectName+"/README.md", newContents)
 }
 
 // Check to see if a folder already exists.
