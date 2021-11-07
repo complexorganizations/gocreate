@@ -8,7 +8,6 @@ import (
 
 var (
 	projectName string
-	err         error
 )
 
 func init() {
@@ -125,7 +124,7 @@ func writeToFile(pathInSystem string, content string) {
 
 // Create a folder in the system.
 func createFolder(foldername string) {
-	err = os.Mkdir(foldername, 0755)
+	err := os.Mkdir(foldername, 0755)
 	if err != nil {
 		log.Printf("Error: Failed to create %s directory.\n", foldername)
 	}
