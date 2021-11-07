@@ -22,10 +22,10 @@
     <img alt="Actions" src="https://github.com/complexorganizations/gocreate/workflows/Go/badge.svg" target="_blank" />
   </a>
   <a href="https://github.com/complexorganizations/gocreate">
-    <img alt="Go-Version" src="https://img.shields.io/github/go-mod/go-version/vx3r/wg-gen-web" target="_blank" />
+    <img alt="Go-Version" src="https://img.shields.io/github/go-mod/go-version/complexorganizations/gocreate" target="_blank" />
   </a>
   <a href="https://github.com/complexorganizations/gocreate">
-    <img alt="Code-Size" src="https://img.shields.io/github/languages/code-size/vx3r/wg-gen-web" target="_blank" />
+    <img alt="Code-Size" src="https://img.shields.io/github/languages/code-size/complexorganizations/gocreate" target="_blank" />
   </a>
 </p>
 
