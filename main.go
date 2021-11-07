@@ -23,8 +23,11 @@ func init() {
 		log.Fatal("Error: The name of the project has not been given.")
 	}
 	// Make sure the project name doesn't contain any characters that aren't allowed.
-	if strings.Contains(projectName, "<") || strings.HasPrefix(projectName, ".") || strings.Contains(projectName, ">") || strings.Contains(projectName, ":") || strings.Contains(projectName, `"`) || strings.Contains(projectName, "/") || strings.Contains(projectName, `\`) || strings.Contains(projectName, "|") || strings.Contains(projectName, "?") || strings.Contains(projectName, "*") || projectName == "." {
-		log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
+	invalidCharacters := []string{"<", ">", ".", "/", `\`, ":", "\"", "|", "?", "*", "#", "@"}
+	for _, character := range invalidCharacters {
+		if strings.Contains(projectName, character) {
+			log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
+		}
 	}
 	// Check to see if the folder or file you're looking for already exists.
 	if folderExists(projectName) || fileExists(projectName) {
@@ -39,10 +42,7 @@ func main() {
 // Create Project Structure
 func createProjectStructure() {
 	// Create project folder
-	err = os.Mkdir(projectName, 0755)
-	if err != nil {
-		log.Fatalf("Error: Failed to create %s directory.\n", projectName)
-	}
+	createFolder(projectName)
 	// Create assets folder
 	createFolder(projectName + "/assets")
 	writeToFile(projectName+"/assets/README.md", "### `/assets`")
