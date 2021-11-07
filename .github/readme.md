@@ -21,6 +21,9 @@
   <a href="https://github.com/complexorganizations/gocreate/actions">
     <img alt="Actions" src="https://github.com/complexorganizations/gocreate/workflows/Go/badge.svg" target="_blank" />
   </a>
+  <a href="https://github.com/complexorganizations/gocreate/actions/workflows/codeql-analysis.yml">
+    <img alt="CodeQL" src="https://github.com/complexorganizations/gocreate/actions/workflows/codeql-analysis.yml/badge.svg" target="_blank" />
+  </a>
   <a href="https://github.com/complexorganizations/gocreate">
     <img alt="Go-Version" src="https://img.shields.io/github/go-mod/go-version/complexorganizations/gocreate" target="_blank" />
   </a>
