@@ -120,6 +120,6 @@ func writeToFile(path string, content string) {
 func createFolder(foldername string) {
 	err := os.MkdirAll(foldername, 0755)
 	if err != nil {
-		log.Printf("Error: Failed to create %s directory.\n", foldername)
+		log.Fatalf("Error: Failed to create %s directory.\n", foldername)
 	}
 }
