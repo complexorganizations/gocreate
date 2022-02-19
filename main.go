@@ -13,20 +13,13 @@ var (
 func init() {
 	// Ascertain that the user has provided a project name.
 	if len(os.Args) < 1 {
-		log.Fatal("Error: The project name was not been given.")
+		log.Fatalln("Error: The project name was not been given.")
 	} else {
 		projectName = os.Args[1]
 	}
 	// If no name is specified or if the name is the default, exit.
 	if len(projectName) < 1 {
-		log.Fatal("Error: The name of the project has not been given.")
-	}
-	// Make sure the project name doesn't contain any characters that aren't allowed.
-	invalidCharacters := []string{"<", ">", ".", "/", `\`, ":", "\"", "|", "?", "*", "#", "@"}
-	for _, character := range invalidCharacters {
-		if strings.Contains(projectName, character) {
-			log.Fatalf("Error: %s isn't a legitimate project name.\n", projectName)
-		}
+		log.Fatalln("Error: The name of the project has not been given.")
 	}
 	// Check to see if the folder or file you're looking for already exists.
 	if folderExists(projectName) || fileExists(projectName) {
