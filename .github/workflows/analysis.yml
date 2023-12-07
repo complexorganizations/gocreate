@@ -10,7 +10,7 @@ jobs:
       - name: Get the system requirements.
         run: sudo apt-get install coreutils -y
       - name: Get the current version of Go from project.
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version-file: "go.mod"
           cache: true
